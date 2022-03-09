@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<t:SlideMenuView xmlns="http://xamarin.com/schemas/2014/forms"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+		xmlns:t="clr-namespace:SlideOverKit"
+		x:Class="SlideOverKit.MoreSample.RightSideMasterPage"
+		 xmlns:local="clr-namespace:SlideOverKit.MoreSample"
+        Padding="5">
+	<t:SlideMenuView.Resources>
+	  <ResourceDictionary>
+      	<local:OpenInstallColorConverter x:Key="OpenInstallColorConverter" />
+      </ResourceDictionary>
+	</t:SlideMenuView.Resources>
+	<t:SlideMenuView.Content>
+	<StackLayout HorizontalOptions="Center" VerticalOptions="FillAndExpand"  BackgroundColor="Transparent" >
+      <StackLayout x:Name="loadingIndicator">
+        <ActivityIndicator x:Name="loading" IsRunning="True"
+                       HorizontalOptions="Center" VerticalOptions="Center" Color="White"/>
+      </StackLayout>
+     <ListView SeparatorVisibility="None" x:Name="AppList"  BackgroundColor="#141b3d" HorizontalOptions="FillAndExpand" VerticalOptions="Fill"  IsVisible="false" HasUnevenRows="true">
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell StyleId="none" >
+                  <ViewCell.View >
+                    <Grid BackgroundColor="#141b3d" Padding="0,5,0,5">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                      </Grid.ColumnDefinitions>
+                      <Image Source="applicationListIcon.png" Grid.Column="0" WidthRequest="40" HeightRequest="40" Aspect="AspectFill"/>
+                      <Image Source="{Binding Icon}" Grid.Column="0" WidthRequest="40" HeightRequest="40" Aspect="AspectFill" />
+                      <Label Grid.Column="1" Text="{Binding Name}" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" VerticalOptions="Center" TextColor="White" LineBreakMode="WordWrap" FontSize="{Binding SetFontSize}"/>
+                      <Button TextColor="White"  BackgroundColor="{Binding AppStatus, Converter={StaticResource OpenInstallColorConverter}}"  Grid.Column="2"  ClassId="{Binding PackageName}" Text="{Binding AppStatus}" Clicked="AppStatusButtonCLicked"  FontSize="{Binding SetFontSize}" WidthRequest="60"/>
+                    </Grid>
+                  </ViewCell.View>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+      </StackLayout>
+
+		</t:SlideMenuView.Content>
+    </t:SlideMenuView>

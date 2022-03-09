@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="LAapleSarkar" xml:space="preserve">
+    <value>आपले सरकार</value>
+  </data>
+  <data name="LBiography" xml:space="preserve">
+    <value>चरित्र</value>
+  </data>
+  <data name="LCabinetMinister" xml:space="preserve">
+    <value>कॅबिनेट मंत्री</value>
+  </data>
+  <data name="LChiefJustice" xml:space="preserve">
+    <value>चीफ जस्टीस</value>
+  </data>
+  <data name="LCmInternshipProgram" xml:space="preserve">
+    <value>मुख्यमंत्री सेवा कार्यक्रम</value>
+  </data>
+  <data name="LCmOffice" xml:space="preserve">
+    <value>मुख्यमंत्री कार्यालय</value>
+  </data>
+  <data name="LCmReliefsFund" xml:space="preserve">
+    <value>मुख्यमंत्री मदत निधी</value>
+  </data>
+  <data name="LCmVisits" xml:space="preserve">
+    <value>भेटी</value>
+  </data>
+  <data name="LCollectors" xml:space="preserve">
+    <value>जिल्हाधिकारी</value>
+  </data>
+  <data name="LContactcmo" xml:space="preserve">
+    <value>संपर्क निधीचा गैरवापर</value>
+  </data>
+  <data name="LDigitalMaharashtra" xml:space="preserve">
+    <value>डिजीटल महाराष्ट्र</value>
+  </data>
+  <data name="LDroughtFreeMaharashtra" xml:space="preserve">
+    <value>जलयुक्त शिवार</value>
+  </data>
+  <data name="LEvents" xml:space="preserve">
+    <value>कार्यक्रम</value>
+  </data>
+  <data name="LForeignVisits" xml:space="preserve">
+    <value>महाराष्ट्रातील करा आंतरराष्ट्रीय ला</value>
+  </data>
+  <data name="LFormercmo" xml:space="preserve">
+    <value>माजी मुख्यमंत्री</value>
+  </data>
+  <data name="LGallery" xml:space="preserve">
+    <value>गॅलरी</value>
+  </data>
+  <data name="LGovernor" xml:space="preserve">
+    <value>राज्यपाल</value>
+  </data>
+  <data name="LGovtDepartment" xml:space="preserve">
+    <value>सरकारी विभाग</value>
+  </data>
+  <data name="LHome" xml:space="preserve">
+    <value>मुख्यपृष्ठ</value>
+  </data>
+  <data name="LInitiatives" xml:space="preserve">
+    <value>उपक्रम</value>
+  </data>
+  <data name="LJalyuktaVisits" xml:space="preserve">
+    <value>जलयुक्त भेट</value>
+  </data>
+  <data name="LJoinUs" xml:space="preserve">
+    <value>सहभागी व्हा !</value>
+  </data>
+  <data name="LMagazineGallery" xml:space="preserve">
+    <value>नियतकालिक गॅलरी</value>
+  </data>
+  <data name="LMaharashtraVisits" xml:space="preserve">
+    <value>महाराष्ट्र दौरा</value>
+  </data>
+  <data name="LMakeInMaharashtra" xml:space="preserve">
+    <value>मेक इन महाराष्ट्र</value>
+  </data>
+  <data name="LNewsGallery" xml:space="preserve">
+    <value>बातम्या गॅलरी</value>
+  </data>
+  <data name="LPersonalWebsite" xml:space="preserve">
+    <value>वैयक्तिक वेबसाइट</value>
+  </data>
+  <data name="LPhotoGallery" xml:space="preserve">
+    <value>फोटो गॅलरी</value>
+  </data>
+  <data name="LPressGallery" xml:space="preserve">
+    <value>प्रेस रिलीझ</value>
+  </data>
+  <data name="LRightToService" xml:space="preserve">
+    <value>सेवा का अधिकार</value>
+  </data>
+  <data name="LSecretaries" xml:space="preserve">
+    <value>सचिव</value>
+  </data>
+  <data name="LSkillDevelopment" xml:space="preserve">
+    <value>कौशल्य विकास</value>
+  </data>
+  <data name="LSocialResponsibilityCell" xml:space="preserve">
+    <value>सामाजिक जबाबदारी सेल</value>
+  </data>
+  <data name="LStateMinisters" xml:space="preserve">
+    <value>राज्य मंत्री</value>
+  </data>
+  <data name="LSwachhMaharashtra" xml:space="preserve">
+    <value>स्वच्छ महाराष्ट्र</value>
+  </data>
+  <data name="LTeamcmo" xml:space="preserve">
+    <value>टीम सी एम ओ</value>
+  </data>
+  <data name="LTeamMaharashtra" xml:space="preserve">
+    <value>टीम महाराष्ट्र</value>
+  </data>
+  <data name="LTheChiefMinister" xml:space="preserve">
+    <value>मुख्यमंत्री</value>
+  </data>
+  <data name="LVideoGallery" xml:space="preserve">
+    <value>व्हिडिओ गॅलरी</value>
+  </data>
+  <data name="LVisionMissionOath" xml:space="preserve">
+    <value>व्हिजन , मिशन आणि शपथ</value>
+  </data>
+  <data name="LChangeLanguage" xml:space="preserve">
+    <value>भाषा बदला</value>
+  </data>
+  <data name="LContactEmail" xml:space="preserve">
+    <value>ईमेल</value>
+  </data>
+  <data name="LContactMobileNumber" xml:space="preserve">
+    <value>मोबाइल क्रमांक</value>
+  </data>
+  <data name="LContactName" xml:space="preserve">
+    <value>नाव</value>
+  </data>
+  <data name="LEmailCheck" xml:space="preserve">
+    <value>ई-मेल स्वरूप अवैध आहे</value>
+  </data>
+  <data name="LMessage" xml:space="preserve">
+    <value>संदेश</value>
+  </data>
+  <data name="LSubject" xml:space="preserve">
+    <value>विषय</value>
+  </data>
+  <data name="LSubmit" xml:space="preserve">
+    <value>सादर करा</value>
+  </data>
+  <data name="LMenuChiefMinister" xml:space="preserve">
+    <value>चीफ जस्टीस</value>
+  </data>
+  <data name="LMenuPhotoGallery" xml:space="preserve">
+    <value>फोटो गॅलरी</value>
+  </data>
+  <data name="LMenuPressRelease" xml:space="preserve">
+    <value>प्रेस रिलीझ</value>
+  </data>
+  <data name="LMenuVideoGallery" xml:space="preserve">
+    <value>व्हिडिओ गॅलरी</value>
+  </data>
+  <data name="LSearch" xml:space="preserve">
+    <value>शोध</value>
+  </data>
+  <data name="LPhotos" xml:space="preserve">
+    <value>फोटो</value>
+  </data>
+  <data name="LVideos" xml:space="preserve">
+    <value>व्हिडिओ</value>
+  </data>
+  <data name="LCMOfficeAddress" xml:space="preserve">
+    <value>६ वा मजला मंत्रालय, मुंबई.</value>
+  </data>
+  <data name="LCMOfficeContactUsSubmitButton" xml:space="preserve">
+    <value>सादर करा</value>
+  </data>
+  <data name="LCMOfficeEmail" xml:space="preserve">
+    <value>chiefminister@maharashtra.gov.in</value>
+  </data>
+  <data name="LCMOfficeFaxNumber" xml:space="preserve">
+    <value>०२२-२२०२९२१४</value>
+  </data>
+  <data name="LCMOfficeName" xml:space="preserve">
+    <value>मुख्यमंत्री कार्यालय (सीएमओ)</value>
+  </data>
+  <data name="LCMOfficePhoneNumber" xml:space="preserve">
+    <value>०२२-२२०२५१५१ / ०२२-२२०२५२२२</value>
+  </data>
+  <data name="LInitiativesTitle" xml:space="preserve">
+    <value>उपक्रम</value>
+  </data>
+  <data name="LComingSoon" xml:space="preserve">
+    <value>लवकरच येत आहे...</value>
+  </data>
+  <data name="LPressRelease" xml:space="preserve">
+    <value>प्रेस रिलीझ</value>
+  </data>
+  <data name="LMaharashtraVisitPhotos" xml:space="preserve">
+    <value>महाराष्ट्र दौरा</value>
+  </data>
+  <data name="LSomethingWentWrong" xml:space="preserve">
+    <value>काहीतरी चूक झाली</value>
+  </data>
+  <data name="LWebserverNotResponding" xml:space="preserve">
+    <value>सर्व्हर प्रतिसाद देत नाही कृपया पुन्हा प्रयत्न करा.</value>
+  </data>
+  <data name="LNoInternetConnection" xml:space="preserve">
+    <value>इंटरनेट कनेक्शन नाही उपलब्ध</value>
+  </data>
+  <data name="LNoRecordsFound" xml:space="preserve">
+    <value>नाही रेकॉर्ड सापडले</value>
+  </data>
+  <data name="LError" xml:space="preserve">
+    <value>त्रुटी</value>
+  </data>
+  <data name="LExitApp" xml:space="preserve">
+    <value>आपण अनुप्रयोग मधून निर्गमन करू इच्छिता</value>
+  </data>
+  <data name="LNo" xml:space="preserve">
+    <value>नाही</value>
+  </data>
+  <data name="LOk" xml:space="preserve">
+    <value>ठीक आहे</value>
+  </data>
+  <data name="LYes" xml:space="preserve">
+    <value>होय</value>
+  </data>
+  <data name="LExit" xml:space="preserve">
+    <value>सी एम ओ</value>
+  </data>
+  <data name="LOf" xml:space="preserve">
+    <value>च्या</value>
+  </data>
+  <data name="LDownloadFile" xml:space="preserve">
+    <value>आपण फाइल डाउनलोड करू इच्छिता?</value>
+  </data>
+  <data name="LNotification" xml:space="preserve">
+    <value>सूचना</value>
+  </data>
+  <data name="LThankYouMsg" xml:space="preserve">
+    <value>आम्हाला लिहून धन्यवाद, आम्ही शक्य तितक्या लवकर आपण परत मिळेल</value>
+  </data>
+  <data name="LFieldIsRequired" xml:space="preserve">
+    <value> आवश्यक फील्ड</value>
+  </data>
+  <data name="LMessageLengthCheck" xml:space="preserve">
+    <value>मि प्रविष्ट करा. 3 आणि कमाल. 300 संदेश मध्ये वर्ण.</value>
+  </data>
+  <data name="LMobileNumberCheck" xml:space="preserve">
+    <value>मि प्रविष्ट करा. 10 आणि कमाल. 15 मोबाइल वर्ण.</value>
+  </data>
+  <data name="LNameLengthCheck" xml:space="preserve">
+    <value>मि प्रविष्ट करा. 3 आणि कमाल. 50 नाव वर्ण.</value>
+  </data>
+  <data name="LSubjectLengthCheck" xml:space="preserve">
+    <value>मि प्रविष्ट करा. 3 आणि कमाल. 100 विषय मध्ये वर्ण.</value>
+  </data>
+  <data name="LCall" xml:space="preserve">
+    <value>कॉल</value>
+  </data>
+  <data name="LDialNumber" xml:space="preserve">
+    <value>नंबर डायल करा</value>
+  </data>
+  <data name="LMenu" xml:space="preserve">
+    <value>मेनू</value>
+  </data>
+  <data name="LChiefMinisterDescription" xml:space="preserve">
+    <value>Devendra Gangadharrao Fadnavis is the current Chief Minister of Maharashtra and President of the ‘Bharatiya Janata Party (BJP) Maharashtra Pradesh’ is a rare brand of politician who is both, erudite and popular with the masses.</value>
+  </data>
+  <data name="LChiefMinisterName" xml:space="preserve">
+    <value>श्री देवेंद्र फडणवीस</value>
+  </data>
+  <data name="LCMVisitDescription" xml:space="preserve">
+    <value>Welcome to the Chief Minister's official visit section. To attract foreign investment to Maharashtra Chief Minister has visited many countries and other places. Make in Maharashtra is one of the major initiative started by Government of Maharashtra on sidelines of Make in India initiative by Government of India.</value>
+  </data>
+  <data name="LTeamMaharashtraDescription" xml:space="preserve">
+    <value>In this section you can find out A to Z information of all the important Functionaries of Maharashtra Government.</value>
+  </data>
+  <data name="LApplicationList" xml:space="preserve">
+    <value>महाराष्ट्र शासनाच्या मोबाइल अनुप्रयोग</value>
+  </data>
+  <data name="LMagazineGalleryJune2015" xml:space="preserve">
+    <value>जून 2015</value>
+  </data>
+  <data name="LMaharashtraAhead" xml:space="preserve">
+    <value>पुढे महाराष्ट्र</value>
+  </data>
+  <data name="LJoinUsDescription" xml:space="preserve">
+    <value>Chief Minister's Internship Program is a unique opportunity for the youth of Maharashtra. For the first time, the young minds will be able to participate and work in the decision-making and implementation process of the government.</value>
+  </data>
+  <data name="LNewsUpdates" xml:space="preserve">
+    <value>बातम्या अद्यतने</value>
+  </data>
+
+  <data name="LTheChiefMinisterTitle" xml:space="preserve">
+    <value>मुख्यमंत्री</value>
+  </data>
+  <data name="LCmVisitsTitle" xml:space="preserve">
+    <value>भेटी</value>
+  </data>
+  <data name="LTeamMaharashtraTitle" xml:space="preserve">
+     <value>टीम महाराष्ट्र</value>
+  </data>
+  <data name="LPhotoGalleryTitle" xml:space="preserve">
+      <value>फोटो गॅलरी</value>
+  </data>
+  <data name="LVideoGalleryTitle" xml:space="preserve">
+     <value>व्हिडिओ गॅलरी</value>
+  </data>
+  <data name="LNewsUpdatesTitle" xml:space="preserve">
+    <value>बातम्या अद्यतने</value>
+  </data>
+  <data name="LJoinUsTitle" xml:space="preserve">
+     <value>सहभागी व्हा !</value>
+  </data>
+	<data name="LNetworkError" xml:space="preserve">
+    <value>नेटवर्क त्रुटी</value>
+  </data>
+</root>

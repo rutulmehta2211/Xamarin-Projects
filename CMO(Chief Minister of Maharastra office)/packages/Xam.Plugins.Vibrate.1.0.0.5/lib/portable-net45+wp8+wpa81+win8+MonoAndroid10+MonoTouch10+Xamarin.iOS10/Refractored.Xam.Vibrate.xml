@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Refractored.Xam.Vibrate</name>
+    </assembly>
+    <members>
+        <member name="P:Refractored.Xam.Vibrate.CrossVibrate.Current">
+            <summary>
+            Current settings to use
+            </summary>
+        </member>
+    </members>
+</doc>

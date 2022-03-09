@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.Gallery.VideoGallery"
+             BackgroundColor="Black"
+             xmlns:local="clr-namespace:CMO;assembly=CMO"
+             xmlns:labelLocal="clr-namespace:CMO.Gallery;assembly=CMO">
+  <ContentPage.Content>
+    <Grid VerticalOptions="Fill" BackgroundColor="Transparent"  >
+      <Grid.RowDefinitions>
+        <RowDefinition x:Name="firstrow" Height="Auto"/>
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+    <StackLayout Grid.Row="0" VerticalOptions="Center" Padding="5,5,5,0" BackgroundColor="Black">
+        <Grid BackgroundColor="White" VerticalOptions="Center">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+        <StackLayout Grid.Column="0" VerticalOptions="CenterAndExpand" Padding="5,0,0,0"  x:Name="EntryOuterStack">
+            <Frame   Padding="1"
+              OutlineColor="#ffffff"
+                  HorizontalOptions="FillAndExpand"
+              VerticalOptions="CenterAndExpand" HeightRequest="35"
+              BackgroundColor="White"	>
+            <Frame.Content>
+              <Entry  x:Name="FilterVideoGallerytList" TextColor="#09091a" BackgroundColor="White" VerticalOptions="CenterAndExpand" HeightRequest="35" FontSize="Small" />
+            </Frame.Content>
+          </Frame>
+        </StackLayout>
+        <StackLayout Padding="1,0,1,0" Grid.Column="1">
+          <Image  x:Name="ApplyButton" Source="ico_search.png"  VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="Fill">
+            <Image.GestureRecognizers>
+              <TapGestureRecognizer
+                      Tapped="TapSearchImage"
+                      NumberOfTapsRequired="1" />
+            </Image.GestureRecognizers>
+          </Image>
+        </StackLayout>
+      </Grid>
+      </StackLayout>
+    
+      <StackLayout Padding="0,5,0,0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center">
+        <Label  x:Name="lblNoRecord" Text="{x:Static local:AppResources.LNoRecordsFound}" IsVisible="False" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="#09091a"  FontAttributes="Bold"/>
+      </StackLayout>
+      <ListView Grid.Row="1"  x:Name="VideoGalleryList" SeparatorVisibility="None" BackgroundColor="Transparent" IsPullToRefreshEnabled="True">
+        <ListView.ItemTemplate>
+          <DataTemplate >
+            <ViewCell StyleId="none" >
+              <ViewCell.View  >
+                <Grid  BackgroundColor="Black" HorizontalOptions="Fill">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                  </Grid.ColumnDefinitions>
+                  <Grid  Grid.Column="0" Padding="5,5,5,5" BackgroundColor="Black" ClassId="{Binding left_video_url}"  VerticalOptions="FillAndExpand">
+                    <Image  Source="photogalleryplaceholder" HorizontalOptions="Fill"  VerticalOptions="FillAndExpand" Aspect="Fill"/>
+                    <Image  Source="{Binding left_video_thumb_path}" HorizontalOptions="Fill"  VerticalOptions="FillAndExpand" Aspect="Fill"/>
+                    <Image Source="play" HorizontalOptions="Center"  VerticalOptions="Center" Aspect="AspectFit"/>
+					<StackLayout VerticalOptions="EndAndExpand" Padding="0,0,0,-2" >
+                     <labelLocal:WrappedTruncatedLabel VerticalTextAlignment="Center" Text="{Binding left_title}" HorizontalTextAlignment="Center"  HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"  TextColor="White" BackgroundColor="#132561"  Opacity="0.88" FontSize="{Binding SetFontSize}"  HeightRequest="40"/>
+                    </StackLayout>
+                      <Grid.GestureRecognizers>
+                      <TapGestureRecognizer Tapped="LeftVideoTapped"/>
+                    </Grid.GestureRecognizers>
+                  </Grid>
+                  <Grid  Grid.Column="1" Padding="5,5,5,5" BackgroundColor="Black" ClassId="{Binding right_video_url}"  VerticalOptions="FillAndExpand">
+                    <Image Source="{Binding PlaceholderRight}" HorizontalOptions="Fill"  VerticalOptions="FillAndExpand" Aspect="Fill"/>
+                    <Image Source="{Binding right_video_thumb_path}" HorizontalOptions="Fill"  VerticalOptions="FillAndExpand" Aspect="Fill"/>
+				    <Image Source="{Binding playright}" HorizontalOptions="Center"  VerticalOptions="Center" Aspect="AspectFit"/>
+				
+                    <StackLayout VerticalOptions="EndAndExpand" Padding="0,0,0,-2" >
+                      <labelLocal:WrappedTruncatedLabel VerticalTextAlignment="Center" Text="{Binding right_title}"    HorizontalTextAlignment="Center"  HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"  TextColor="White" BackgroundColor="{Binding background}"   Opacity="0.88" FontSize="{Binding SetFontSize}"  HeightRequest="40"/>
+                   </StackLayout>
+                     <Grid.GestureRecognizers>
+                      <TapGestureRecognizer Tapped="RightVideoTapped"/>
+                    </Grid.GestureRecognizers>
+                  </Grid>
+                </Grid>
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <StackLayout Grid.Row="1" x:Name="loadingIndicator">
+        <ActivityIndicator x:Name="loading" IsRunning="True"
+                       HorizontalOptions="Center" VerticalOptions="Center" Color="White"/>
+      </StackLayout>
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

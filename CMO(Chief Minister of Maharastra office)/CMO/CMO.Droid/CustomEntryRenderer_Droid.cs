@@ -1,0 +1,21 @@
+using Mobile.Droid.Renderers;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
+
+
+[assembly: ExportRenderer(typeof(Entry), typeof(CustomEntryRenderer_Droid))]
+namespace Mobile.Droid.Renderers
+{
+    public class CustomEntryRenderer_Droid : EntryRenderer
+    {
+        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+        {
+            base.OnElementChanged(e);
+            Control?.SetBackgroundColor(Android.Graphics.Color.Transparent);
+            Control?.SetCursorVisible(true);
+            Control.TextAlignment = Android.Views.TextAlignment.Center;
+          //  Control.SetPadding(10, 10, 10, 10);
+           // Control.SetHeight(35);
+        }
+    }
+}

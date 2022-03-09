@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Refractored.Xam.Vibrate</name>
+    </assembly>
+    <members>
+        <member name="P:Refractored.Xam.Vibrate.CrossVibrate.Current">
+            <summary>
+            Current settings to use
+            </summary>
+        </member>
+        <member name="T:Refractored.Xam.Vibrate.Vibrate">
+            <summary>
+            iOS implementation to vibrate device
+            </summary>
+        </member>
+        <member name="M:Refractored.Xam.Vibrate.Vibrate.Vibration(System.Int32)">
+            <summary>
+            Vibrate device with default length
+            </summary>
+            <param name="milliseconds">Ignored (iOS doesn't expose)</param>
+        </member>
+    </members>
+</doc>

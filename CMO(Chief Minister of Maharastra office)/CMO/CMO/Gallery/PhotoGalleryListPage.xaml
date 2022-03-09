@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.Gallery.PhotoGalleryListPage"
+             BackgroundColor="Black"
+             xmlns:controls="clr-namespace:CMO"
+              xmlns:local="clr-namespace:CMO;assembly=CMO"
+ xmlns:labelLocal="clr-namespace:CMO.Gallery;assembly=CMO" >
+  <ContentPage.Content>
+    <controls:PopupLayout >
+      <controls:PopupLayout.Content>
+        <Grid VerticalOptions="Fill" BackgroundColor="Transparent">
+          <Grid.RowDefinitions>
+            <RowDefinition x:Name="firstrow" Height="Auto"/>
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <StackLayout Grid.Row="0" VerticalOptions="Center" Padding="5,5,5,0" BackgroundColor="Black">
+            <Grid BackgroundColor="White" VerticalOptions="Center">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto" />
+              </Grid.ColumnDefinitions>
+              <StackLayout Grid.Column="0" VerticalOptions="CenterAndExpand" Padding="5,0,0,0"  x:Name="EntryOuterStack">
+                <Frame   Padding="1"
+                  OutlineColor="#ffffff"
+                      HorizontalOptions="FillAndExpand"
+                  VerticalOptions="CenterAndExpand" HeightRequest="35"
+                  BackgroundColor="White"	>
+                  <Frame.Content>
+                    <Entry  x:Name="FilterPhotoGallerytList" TextColor="#09091a" BackgroundColor="White" VerticalOptions="CenterAndExpand" HeightRequest="35" FontSize="Small" />
+                  </Frame.Content>
+                </Frame>
+              </StackLayout>
+              <StackLayout Padding="1,0,1,0" Grid.Column="1">
+                <Image  x:Name="ApplyButton" Source="ico_search.png"  VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="Fill">
+                  <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="TapSearchImage"
+                            NumberOfTapsRequired="1" />
+                  </Image.GestureRecognizers>
+                </Image>
+              </StackLayout>
+            </Grid>
+          </StackLayout>
+
+          <StackLayout Padding="0,5,0,0" VerticalOptions="Start" HorizontalOptions="Center" Grid.Row="1">
+            <Label  x:Name="lblNoRecord" Text="{x:Static local:AppResources.LNoRecordsFound}" IsVisible="False" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="#09091a" FontAttributes="Bold"   />
+          </StackLayout>
+           <ListView Grid.Row="1" x:Name="PhotoGalleryList" SeparatorVisibility="None" BackgroundColor="Transparent" IsPullToRefreshEnabled="True">
+            <ListView.ItemTemplate>
+              <DataTemplate >
+                <ViewCell StyleId="none" >
+                  <ViewCell.View  >
+                    <Grid  BackgroundColor="Black"  HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                      </Grid.ColumnDefinitions>
+                      <Grid  Grid.Column="0" Padding="5,5,5,5" BackgroundColor="Black" ClassId="{Binding leftId}" VerticalOptions="FillAndExpand" >
+                        <Image  Source="photogalleryplaceholder" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Aspect="Fill"/>
+                        <Image x:Name="LeftImage" Source="{Binding leftImageUrl}" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" Aspect="Fill"/>
+                        <StackLayout VerticalOptions="EndAndExpand" Padding="0,0,0,-2" >
+                            <labelLocal:WrappedTruncatedLabel VerticalTextAlignment="Center"  Text="{Binding leftTitle}" HorizontalTextAlignment="Center"  HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"  TextColor="White"  BackgroundColor="#132561" Opacity="0.88" HeightRequest="40"  FontSize="{Binding SetFontSize}"  />
+                        </StackLayout>
+                        <!--<ActivityIndicator Color="White"  BindingContext="{x:Reference Name=LeftImage}" HorizontalOptions="Fill" VerticalOptions="Fill"  />-->
+                        
+                        <Grid.GestureRecognizers>
+                          <TapGestureRecognizer Tapped="LeftPhotoTapped" NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                      </Grid>
+                      <Grid  Grid.Column="1" Padding="5,5,5,5" BackgroundColor="Black" ClassId="{Binding rightId}" VerticalOptions="FillAndExpand">
+                        <Image Source="{Binding PlaceholderRight}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Aspect="Fill"/>
+                        <Image Source="{Binding rightImageUrl}" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Aspect="Fill"/>
+                        <StackLayout VerticalOptions="EndAndExpand" Padding="0,0,0,-2">
+                           <labelLocal:WrappedTruncatedLabel  VerticalTextAlignment="Center" Text="{Binding rightTitle}"  VerticalOptions="CenterAndExpand"  HorizontalTextAlignment="Center"  HorizontalOptions="Fill"   TextColor="White" BackgroundColor="{Binding background}" Opacity="0.88"  HeightRequest="40" FontSize="{Binding SetFontSize}"/>
+                        </StackLayout>
+                        <Grid.GestureRecognizers>
+                          <TapGestureRecognizer Tapped="RightPhotoTapped" NumberOfTapsRequired="1"/>
+                        </Grid.GestureRecognizers>
+                      </Grid>
+                    </Grid>
+                  </ViewCell.View>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+          <StackLayout Grid.Row="1" x:Name="loadingIndicator">
+            <ActivityIndicator x:Name="loading" IsRunning="True"
+                           HorizontalOptions="Center" VerticalOptions="Center" Color="White"/>
+          </StackLayout>
+        </Grid>
+      </controls:PopupLayout.Content>
+    </controls:PopupLayout>
+  </ContentPage.Content>
+</ContentPage>

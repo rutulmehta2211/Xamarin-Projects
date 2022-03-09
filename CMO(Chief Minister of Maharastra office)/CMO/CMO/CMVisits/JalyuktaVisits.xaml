@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.CMVisits.JalyuktaVisits"
+             BackgroundColor="#09091a"
+             Padding="4,4,4,4"
+              xmlns:local="clr-namespace:CMO;assembly=CMO"
+			xmlns:labelLocal="clr-namespace:CMO.Gallery;assembly=CMO">
+  <Grid VerticalOptions="Fill" BackgroundColor="#09091a" >
+    <Grid.RowDefinitions>
+     <RowDefinition x:Name="firstrow" Height="Auto"/>
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <StackLayout Grid.Row="0" VerticalOptions="Center" Padding="5,5,5,0" BackgroundColor="Black">
+      <Grid BackgroundColor="White" VerticalOptions="Center">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <StackLayout Grid.Column="0" VerticalOptions="CenterAndExpand" Padding="5,0,0,0"  x:Name="EntryOuterStack">
+          <Frame   Padding="1"
+            OutlineColor="#ffffff"
+                HorizontalOptions="FillAndExpand"
+            VerticalOptions="CenterAndExpand" HeightRequest="35"
+            BackgroundColor="White"	>
+            <Frame.Content>
+              <Entry  x:Name="FilterJalyuktVisitList" TextColor="#09091a" BackgroundColor="White" VerticalOptions="CenterAndExpand" HeightRequest="35" FontSize="Small" />
+            </Frame.Content>
+          </Frame>
+        </StackLayout>
+        <StackLayout Padding="1,0,1,0" Grid.Column="1">
+          <Image  x:Name="ApplyButton" Source="ico_search.png"  VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Aspect="Fill">
+            <Image.GestureRecognizers>
+              <TapGestureRecognizer
+                      Tapped="TapSearchImage"
+                      NumberOfTapsRequired="1" />
+            </Image.GestureRecognizers>
+          </Image>
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+
+    <!--<ListView  x:Name="JalyuktVisitLists" SeparatorVisibility="None" BackgroundColor="#09091a" VerticalOptions="Fill" >-->
+    <StackLayout Padding="0,5,0,0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center">
+      <Label  x:Name="lblNoRecord" Text="{x:Static local:AppResources.LNoRecordsFound}" IsVisible="False" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="#09091a" FontAttributes="Bold"/>
+    </StackLayout>
+    <ListView Grid.Row="1"  x:Name="JalyuktVisitLists" SeparatorVisibility="None" BackgroundColor="Transparent" VerticalOptions="Fill" IsPullToRefreshEnabled="True">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell StyleId="none" >
+            <ViewCell.View >
+              <StackLayout HorizontalOptions="Fill"   VerticalOptions="Fill" BackgroundColor="#09091a" Padding="5,5,5,5">
+                <StackLayout BackgroundColor="White" Padding="1" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+                  <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand" BackgroundColor="#09091a" >
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="{Binding ImageWidth}" />
+                      <ColumnDefinition Width="{Binding TitleWidth}" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0"  Source="newsgalleryplaceholder"  VerticalOptions="FillAndExpand" Aspect="Fill" />
+                    <Image Grid.Column="0"  Source="{Binding image}"  VerticalOptions="FillAndExpand" Aspect="Fill" />
+
+                    <Grid Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center" BackgroundColor="#09091a" Padding="0,0,3,0">
+                      <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                      </Grid.RowDefinitions>
+                      <labelLocal:WrappedTruncatedLabel  Grid.Row="0" FontSize="{Binding SetFontSize}"  Text="{Binding title}"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Start"  TextColor="White" />
+                      <StackLayout BackgroundColor="#09091a"   Grid.Row="1" HorizontalOptions="Start" Orientation="Horizontal"  >
+                        <Image HeightRequest="20" WidthRequest="20" HorizontalOptions="Start" Source="ico_calendar.png"  />
+                        <Label Text="{Binding date}"  FontSize="{Binding SetFontSize}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" HorizontalOptions="Start"  VerticalOptions="Center"  TextColor="White"/>
+                      </StackLayout>
+                    </Grid>
+                  </Grid>
+                </StackLayout>
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    <StackLayout Grid.Row="1" x:Name="loadingIndicator">
+      <ActivityIndicator x:Name="loading" IsRunning="True"
+                     HorizontalOptions="Center" VerticalOptions="Center" Color="White"/>
+    </StackLayout>
+  </Grid>
+</ContentPage>

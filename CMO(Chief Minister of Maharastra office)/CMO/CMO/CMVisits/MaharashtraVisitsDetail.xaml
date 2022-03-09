@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.CMVisits.MaharashtraVisitsDetail"
+             BackgroundColor="#09091a"
+             Padding="10">
+
+  <Grid VerticalOptions="FillAndExpand" BackgroundColor="#132561" Padding="5,5,5,5" >
+		 <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+		  <StackLayout Grid.Row="0"  x:Name="MainStack1" IsVisible="False">
+ 			<Grid >
+	  <Image x:Name="MaharashtraDetailImageBackgrnd" Source="photogalleryplaceholder.png" Aspect="Fill"/>
+      <Image x:Name="MaharashtraDetailImage" Aspect="Fill"/>
+    </Grid>
+			<Label x:Name="MaharashtraVisittitle" TextColor="White" FontAttributes="Bold"/>
+			<StackLayout Orientation="Horizontal">
+     	   		<Image Source="ico_calendar.png" />
+      	   		<Label x:Name="MaharashtraVisitDate" TextColor="White" />
+ 	     	</StackLayout>
+          </StackLayout> 
+          <StackLayout BackgroundColor="#132561" Padding="0,5,0,5"  VerticalOptions="FillAndExpand" Grid.Row="1"  x:Name="MainStack2" IsVisible="False">
+      		 <ScrollView>
+      		  <StackLayout >
+       		   <Label x:Name="MaharashtraVisitDetail" TextColor="White" />
+       			   <Grid VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Column="0" Orientation="Horizontal">
+              <Image x:Name="imgIco" Source="ico_photos.png" IsVisible="False" IsEnabled="False"/>
+              <Label x:Name="MaharashtraVisitPhoto" IsVisible="False" IsEnabled="False" TextColor="White"/>
+              <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer
+                        Tapped="TapPhotoImage"
+                        NumberOfTapsRequired="1" />
+              </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout x:Name="VideoGrid" Grid.Column="1" Orientation="Horizontal" IsVisible="false" IsEnabled="true">
+              <Image x:Name="vidIco" Source="ico_videos.png"/>
+              <Label x:Name="MaharashtraVisitVideo" TextColor="White"/>
+              <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer
+                        Tapped="TapVideoImage"
+                        NumberOfTapsRequired="1" />
+              </StackLayout.GestureRecognizers>
+            </StackLayout>
+          </Grid>
+       		 </StackLayout>
+   		   </ScrollView>
+				
+  		  </StackLayout>
+
+    <StackLayout VerticalOptions="Fill" HorizontalOptions="Center">
+      <ActivityIndicator x:Name="loading" IsRunning="True"
+                     HorizontalOptions="Center" VerticalOptions="Center" Color="White"/>
+    </StackLayout>
+  </Grid>
+		
+</ContentPage>

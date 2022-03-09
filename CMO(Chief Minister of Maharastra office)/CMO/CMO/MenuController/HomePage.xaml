@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<t:MenuContainerPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.MenuController.HomePage"
+             BackgroundColor="#09091a" 
+		xmlns:labelLocal="clr-namespace:CMO.Gallery;assembly=CMO"
+		xmlns:t="clr-namespace:SlideOverKit">
+	<t:MenuContainerPage.Resources>
+    <ResourceDictionary>
+	<Style x:Key="HeaderLabel"  TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="BackgroundColor" Value="#132561" />
+		<Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="White" />
+		<Setter Property="HeightRequest" Value="35" />
+		<Setter Property="VerticalTextAlignment" Value="Center" />	
+		<!--<Setter Property="FontSize" Value="Medium" />-->		
+	</Style>
+    </ResourceDictionary>
+  </t:MenuContainerPage.Resources>
+        <!--<Setter Property="FontSize" Value="Medium" />-->
+  <!--<ContentPage.Padding>
+  <OnPlatform x:TypeArguments="Thickness">
+    <OnPlatform.iOS>
+      0, 20, 0, 0
+    </OnPlatform.iOS>
+    <OnPlatform.Android>
+      <OnIdiom.Phone>20,20,20,20</OnIdiom.Phone>
+      <OnIdiom.Tablet>50,50,50,50</OnIdiom.Tablet>
+    </OnPlatform.Android>
+  </OnPlatform>
+    </ContentPage.Padding>-->
+	<t:MenuContainerPage.Content>
+  <Grid x:Name="HomeGrid" IsVisible="False" RowSpacing="7" Padding="7">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0" BackgroundColor="Black" HorizontalOptions="Fill" ColumnSpacing="7"  >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="2*"/>
+      </Grid.ColumnDefinitions>
+
+      <Image x:Name="ImgChiefMinister" Grid.Column="0" Source="the_Chief_Minister.png"  HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Aspect="Fill">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Tapped="TapChiefMinisterImage" NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+      <StackLayout  Grid.Column="0"  Padding="0,0,0,-1" VerticalOptions="EndAndExpand">
+        <labelLocal:WrappedTruncatedLabel x:Name="ChiefMinisterLabel" Style="{StaticResource HeaderLabel}" />
+      </StackLayout>
+
+      <Image Grid.Column="1" Source="cM_Visits" HorizontalOptions="Fill" VerticalOptions="FillAndExpand" Aspect="Fill">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Tapped="TapCMVisitImage" NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+      <StackLayout  Grid.Column="1"  Padding="0,0,0,-1" VerticalOptions="EndAndExpand">
+        <Label x:Name="CMsVisitsLabel" Style="{StaticResource HeaderLabel}" />
+      </StackLayout>
+    </Grid>
+
+    <Grid Grid.Row="1"  BackgroundColor="Black"  HorizontalOptions="Fill">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Image  Source="team_Maharashtra" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="Fill" Grid.Column="0" >
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Tapped="TapTeamMaharashtraImage" NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+      <StackLayout  Padding="0,0,0,-1" VerticalOptions="EndAndExpand" Grid.Column="0" >
+        <Label x:Name="TeamMaharashtraLabel" Style="{StaticResource HeaderLabel}" />
+      </StackLayout>
+
+	  <Image  Source="initiatives" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="Fill" Grid.Column="1" >
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Tapped="TapInitiativesImage" NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+      <StackLayout  Padding="0,0,0,-1" VerticalOptions="EndAndExpand" Grid.Column="1" >
+        <Label x:Name="InitiativesLabel"  Style="{StaticResource HeaderLabel}"  />
+      </StackLayout>
+    </Grid>
+
+    <Grid Grid.Row="2" BackgroundColor="Black"  HorizontalOptions="Fill" ColumnSpacing="7">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+
+      <Image Grid.Column="0"  Source="photo_Gallery" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="Fill">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Tapped="TapPhotoGalleryImage" NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+      <StackLayout  Grid.Column="0"  Padding="0,0,0,-1" VerticalOptions="EndAndExpand">
+        <Label x:Name="PhotoGalleryLabel" Style="{StaticResource HeaderLabel}"  />
+      </StackLayout>
+
+      <Image Grid.Column="1" Source="video_Gallery" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="Fill">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Tapped="TapVideoGalleryImage" NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>      
+      <StackLayout  Grid.Column="1"  Padding="0,0,0,-1" VerticalOptions="EndAndExpand">
+        <Label x:Name="VideoGalleryLabel" Style="{StaticResource HeaderLabel}" />
+      </StackLayout>
+    </Grid>
+
+    <Grid Grid.Row="3" BackgroundColor="Black"  HorizontalOptions="Fill" >
+	  <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Image   Source="news_Update" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="Fill" Grid.Column="0">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Tapped="TapNewsUpdatesImage" NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+      <StackLayout  Padding="0,0,0,-1" VerticalOptions="EndAndExpand" Grid.Column="0">
+        <Label x:Name="NewsUpdatesLabel" Style="{StaticResource HeaderLabel}" />
+      </StackLayout>
+
+		<Image   Source="join_Us" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="Fill" Grid.Column="1">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Tapped="TapJoinUsImage" NumberOfTapsRequired="1" />
+        </Image.GestureRecognizers>
+      </Image>
+      <StackLayout  Padding="0,0,0,-1" VerticalOptions="EndAndExpand" Grid.Column="1">
+        <Label x:Name="JoinUsLabel" Style="{StaticResource HeaderLabel}"  />
+      </StackLayout>
+    </Grid>
+  </Grid>
+  </t:MenuContainerPage.Content>
+
+	 <t:MenuContainerPage.ToolbarItems>
+    <ToolbarItem x:Name="filterbutton" Order="Primary" Priority="0">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+                   iOS="play.png"
+                    Android="play.png"
+                  WinPhone="filter.png"  />
+      </ToolbarItem.Icon>
+    </ToolbarItem>
+  </t:MenuContainerPage.ToolbarItems>
+</t:MenuContainerPage>

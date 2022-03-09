@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.CMOffice.CMReliefFund"
+            >
+  <WebView x:Name="web" Source="https://cmrf.maharashtra.gov.in/CMRFCitizen/index.action" VerticalOptions="Fill" />
+</ContentPage>

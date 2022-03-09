@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.MenuController.ChangeLanguage"
+             BackgroundColor="#09091a"
+             Padding="5,5,5,5">
+
+  <Grid  VerticalOptions="Start"   Padding="10"  Grid.RowSpacing="5" HorizontalOptions="FillAndExpand">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Grid Grid.Row="0">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="3*" />
+        <ColumnDefinition Width="1*" />
+      </Grid.ColumnDefinitions>
+      <Label x:Name="English" FontAttributes="Bold" TextColor="White" Grid.Column="0" Text="English" VerticalOptions="Center" HorizontalTextAlignment="Start" HorizontalOptions="Start" />
+      <StackLayout Grid.Column="1" Padding="7">
+			<Switch Grid.Column="1" x:Name="EnglishChangeLanguageSwitch" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />
+			</StackLayout>
+	  <Grid.GestureRecognizers>
+        <TapGestureRecognizer Tapped="EnglishLanguageTap" NumberOfTapsRequired="1" />
+      </Grid.GestureRecognizers>
+    </Grid>
+    <Grid Grid.Row="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="3*" />
+        <ColumnDefinition Width="1*" />
+      </Grid.ColumnDefinitions>
+      <Label x:Name="Marathi"  FontAttributes="Bold"   TextColor="White" Grid.Column="0" Text="मराठी" VerticalOptions="Center" HorizontalTextAlignment="Start"  HorizontalOptions="Start" />
+         <StackLayout Grid.Column="1" Padding="7">
+			<Switch Grid.Column="1" x:Name="MarathiChangeLanguageSwitch" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />
+			</StackLayout>
+				<Grid.GestureRecognizers>
+        <TapGestureRecognizer Tapped="MarathiLanguageTap" NumberOfTapsRequired="1" />
+      </Grid.GestureRecognizers>
+    </Grid>
+    <!--<SwitchCell Text="HELLO" x:Name="switccccc" Grid.Row="2"/>-->
+  </Grid>
+</ContentPage>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.JoinUs.JoinUsContentPage"  
+             xmlns:localConverter = "clr-namespace:CMO.ChiefMinister;assembly=CMO"
+             BackgroundColor="#09091a"
+		Padding="5,5,5,5">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <localConverter:TextColorConverter x:Key="TextColorConverter"/>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+     <StackLayout VerticalOptions="Fill"  Padding="5,5,5,5" HorizontalOptions="FillAndExpand">
+				<ScrollView>
+      <StackLayout   Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0">
+
+        <Image x:Name="imgHeader" Aspect="Fill"  HorizontalOptions="FillAndExpand"  VerticalOptions="Center"  />
+          <StackLayout BackgroundColor="#132561" x:Name="DataStack" >
+            <Label  x:Name="lblName" TextColor="White" FontAttributes="Bold"/>
+		  </StackLayout>
+          <StackLayout  Padding="10" BackgroundColor="#132561">
+            <Label x:Name="lblDescription" TextColor="White"/>
+          </StackLayout>
+
+					
+            <StackLayout  Padding="0,10,0,0" BackgroundColor="#09091a">
+              <ListView x:Name="ListModule" SeparatorVisibility="None" BackgroundColor="#09091a"  >
+              <ListView.ItemTemplate>
+                <DataTemplate>
+                  <ViewCell StyleId="none" >
+                    <ViewCell.View >
+                    <StackLayout VerticalOptions="Center"  BackgroundColor="#09091a" Padding="0,4,0,4">
+                             <StackLayout Orientation="Horizontal"  VerticalOptions="Center"  BackgroundColor="#09091a" Padding="7,10,0,10">
+                       	  	   <Image Source="{Binding photoicon_path}" VerticalOptions="Center" Aspect="Fill"/>
+                       		   <Label Text="{Binding ListTitle}" TextColor="White"  VerticalOptions="Center" FontSize="{Binding SetFontSize}" />
+                       		 </StackLayout>
+          			 </StackLayout>
+                  </ViewCell.View>
+                  </ViewCell>
+                </DataTemplate>
+              </ListView.ItemTemplate>
+            </ListView>
+            </StackLayout>
+				
+         
+      </StackLayout>
+					</ScrollView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.Gallery.MagazineGallery"
+             BackgroundColor="#09091a"
+             Padding="10,10,10,0">
+  <ContentPage.Content>
+   
+      
+     <StackLayout VerticalOptions="StartAndExpand">
+       <StackLayout Padding="30,30,30,30" BackgroundColor="#09091a"  VerticalOptions="StartAndExpand"  x:Name="MainStack" IsVisible="False" >
+          <Image x:Name="imgSource" WidthRequest="200" HeightRequest="200" VerticalOptions="Center">
+            <Image.GestureRecognizers>
+              <TapGestureRecognizer
+                      Tapped="OnTapGestureRecognizerTapped"
+                      NumberOfTapsRequired="1" />
+            </Image.GestureRecognizers>
+          </Image>
+          <Label x:Name="LMaharashtraAhead"  TextColor="#dc7803" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+          <!--<Label Text="Maharastra Ahead" TextColor="Blue" HorizontalTextAlignment="Center"/>-->
+          <Label x:Name="LMagazineGalleryJune2015" TextColor="#ffffff" HorizontalTextAlignment="Center" VerticalOptions="Center" />
+        </StackLayout>
+      
+      <ActivityIndicator x:Name="Indicatior_A" 
+          VerticalOptions="StartAndExpand" HorizontalOptions="Center"
+               IsRunning="True" Color="White"  />
+     
+      
+     </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

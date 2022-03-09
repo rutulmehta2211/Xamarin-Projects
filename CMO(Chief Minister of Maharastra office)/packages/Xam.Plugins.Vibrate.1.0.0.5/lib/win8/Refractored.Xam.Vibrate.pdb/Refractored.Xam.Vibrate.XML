@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Refractored.Xam.Vibrate</name>
+    </assembly>
+    <members>
+        <member name="P:Refractored.Xam.Vibrate.CrossVibrate.Current">
+            <summary>
+            Current settings to use
+            </summary>
+        </member>
+        <member name="T:Refractored.Xam.Vibrate.Vibrate">
+            <summary>
+            Vibration implemenation on Windows Store
+            </summary>
+        </member>
+        <member name="M:Refractored.Xam.Vibrate.Vibrate.Vibration(System.Int32)">
+            <summary>
+            Vibration (no effect windows store)
+            </summary>
+            <param name="milliseconds">milliseconds to vibrate for</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.Gallery.PhotosListDetail"
+             BackgroundColor="Black"
+		 xmlns:controls="clr-namespace:CMO"
+             xmlns:labelLocal="clr-namespace:CMO.Gallery;assembly=CMO">
+  <ContentPage.Content>
+    <controls:PopupLayout >
+      <controls:PopupLayout.Content>
+        <Grid VerticalOptions="FillAndExpand">
+        <StackLayout x:Name="PhotoDetailMainStack" VerticalOptions="Fill" BackgroundColor="Transparent">
+          <ListView  x:Name="PhotoDetailList" SeparatorVisibility="None" BackgroundColor="Transparent" IsVisible="False">
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell StyleId="none" >
+                  <ViewCell.View>
+                    <Grid  BackgroundColor="Black" Padding="5,5,5,5" HorizontalOptions="Fill">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                      </Grid.ColumnDefinitions>
+                      <Grid  Grid.Column="0" Padding="5,5,5,5" BackgroundColor="Black" ClassId="{Binding leftId}"  VerticalOptions="FillAndExpand">
+                        <Image  Source="photogalleryplaceholder" HorizontalOptions="Fill"  VerticalOptions="FillAndExpand" Aspect="Fill" />
+                        <Image  Source="{Binding leftImageUrl}" HorizontalOptions="Fill"  VerticalOptions="FillAndExpand" Aspect="Fill" />
+                        <StackLayout VerticalOptions="EndAndExpand" Padding="0,0,0,-2" >
+                          <labelLocal:WrappedTruncatedLabel  Text="{Binding leftTitle}" HorizontalTextAlignment="Center"  HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"  TextColor="White" BackgroundColor="#132561"   VerticalTextAlignment="Center" Opacity="0.88"   HeightRequest="40"  FontSize="{Binding SetFontSize}" />
+                       </StackLayout>
+                          <Grid.GestureRecognizers>
+                          <TapGestureRecognizer Tapped="LeftPhotoTapped"/>
+                        </Grid.GestureRecognizers>
+                      </Grid>
+                      <Grid  Grid.Column="1" Padding="5,5,5,5" BackgroundColor="Black" ClassId="{Binding rightId}"  VerticalOptions="FillAndExpand">
+                        <Image Source="{Binding PlaceholderRight}" HorizontalOptions="Fill"  VerticalOptions="FillAndExpand" Aspect="Fill"/>
+
+                        <Image Source="{Binding rightImageUrl}" HorizontalOptions="Fill"  VerticalOptions="FillAndExpand" Aspect="Fill"/>
+                        <StackLayout VerticalOptions="EndAndExpand" Padding="0,0,0,-2" >
+                          <labelLocal:WrappedTruncatedLabel Text="{Binding rightTitle}" HorizontalTextAlignment="Center"  HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"  TextColor="White" BackgroundColor="{Binding background}"   VerticalTextAlignment="Center" Opacity="0.88"   HeightRequest="40"  FontSize="{Binding SetFontSize}" />
+                        </StackLayout>
+                          <Grid.GestureRecognizers>
+                          <TapGestureRecognizer Tapped="RightPhotoTapped"/>
+                        </Grid.GestureRecognizers>
+                      </Grid>
+                    </Grid>
+                  </ViewCell.View>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+          <StackLayout Grid.Row="1" x:Name="loadingIndicator">
+            <ActivityIndicator x:Name="loading" IsRunning="True" IsEnabled="True"
+                           HorizontalOptions="Center" VerticalOptions="Center" Color="White"/>
+          </StackLayout>
+        </StackLayout>
+        <Grid x:Name="Popupviewimage" IsVisible="false" ClassId="OFF"  />
+          </Grid>
+      </controls:PopupLayout.Content>
+    </controls:PopupLayout>
+  </ContentPage.Content>
+  
+</ContentPage>

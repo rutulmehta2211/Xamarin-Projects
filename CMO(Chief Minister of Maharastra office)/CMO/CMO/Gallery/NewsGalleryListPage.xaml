@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.Gallery.NewsGalleryListPage"
+  BackgroundColor="#09091a"
+		xmlns:labelLocal="clr-namespace:CMO.Gallery;assembly=CMO" >
+  <ContentPage.Content>
+    <StackLayout HorizontalOptions="Center"  BackgroundColor="Transparent"  VerticalOptions="FillAndExpand" >
+      <StackLayout x:Name="loadingIndicator">
+        <ActivityIndicator x:Name="loading" IsRunning="True"
+                       HorizontalOptions="Center" VerticalOptions="Center" Color="White"/>
+      </StackLayout>
+      <ListView  x:Name="NewsGalleryLists" SeparatorVisibility="None" BackgroundColor="#09091a" VerticalOptions="FillAndExpand" IsPullToRefreshEnabled="True">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell StyleId="none" >
+              <ViewCell.View >
+                <StackLayout HorizontalOptions="Fill"   VerticalOptions="Fill" BackgroundColor="#09091a" Padding="5,5,5,5">
+                  <StackLayout BackgroundColor="White" Padding="1" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+                    <Grid HorizontalOptions="Fill" VerticalOptions="FillAndExpand" BackgroundColor="#09091a" >
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{Binding ImageWidth}" />
+                        <ColumnDefinition Width="{Binding TitleWidth}" />
+                      </Grid.ColumnDefinitions>
+                      <Image Grid.Column="0"  Source="newsgalleryplaceholder"  VerticalOptions="FillAndExpand" Aspect="Fill" />
+
+                      <Image Grid.Column="0"  Source="{Binding large_news_photo}"  VerticalOptions="FillAndExpand" Aspect="Fill" />
+                     
+                      <Grid Grid.Column="1" HorizontalOptions="Fill" VerticalOptions="Center" BackgroundColor="#09091a" Padding="0,0,3,0" >
+                        <Grid.RowDefinitions>
+                          <RowDefinition Height="Auto" />
+                          <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <labelLocal:WrappedTruncatedLabel  Grid.Row="0" FontSize="{Binding SetFontSize}"  Text="{Binding title}"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Start"  TextColor="White" />
+                        <StackLayout BackgroundColor="#09091a"   Grid.Row="1" HorizontalOptions="Start" Orientation="Horizontal"  >
+                          <Image HeightRequest="20" WidthRequest="20" HorizontalOptions="Start" Source="ico_calendar.png"  />
+                          <Label Text="{Binding date}"  FontSize="{Binding SetFontSize}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" HorizontalOptions="Start"  VerticalOptions="Center"  TextColor="White"/>
+                        </StackLayout>
+                      </Grid>
+                    </Grid>
+                  </StackLayout>
+                </StackLayout>
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+        
+      </ListView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="CMO.PopupPage"
+		 xmlns:controls="clr-namespace:CMO">
+	<ContentPage.Content>
+		 <controls:PopupLayout >
+      <controls:PopupLayout.Content>
+
+
+				<StackLayout Orientation="Vertical" BackgroundColor="Black">
+
+				<Label Text="Hello World" TextColor="White" x:Name="lab" />
+				</StackLayout>
+	   </controls:PopupLayout.Content>
+    </controls:PopupLayout>
+
+  </ContentPage.Content>
+</ContentPage>

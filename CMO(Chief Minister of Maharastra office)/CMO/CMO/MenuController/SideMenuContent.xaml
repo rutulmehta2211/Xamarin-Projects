@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.MenuController.SideMenuContent"
+             Icon="ico_nav_menu.png"
+             Padding="0,0,0,0"
+             BackgroundColor="#141b3d"
+             xmlns:local = "clr-namespace:CMO;assembly=CMO"
+             Title="Menu">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="buttonStyle" TargetType="Button">
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="#132561" />
+      </Style>
+      <Style x:Key="ModuleHeaderName"  TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="TextColor" Value="White" />
+        <!--<Setter Property="FontSize" Value="Medium" />-->
+		<Setter Property="ClassId" Value="MENU" />
+      </Style>
+      <Style x:Key="ModuleItemName"  TargetType="Label">
+        <Setter Property="TextColor" Value="White" />
+     <!--   <Setter Property="FontSize" Value="Small" />-->
+		<Setter Property="ClassId" Value="MENU" />
+      </Style>
+      <Style x:Key="ImageRightArrowStyle"  TargetType="Image">
+        <Setter Property="Source" Value="ico_down_arrow2_right.png" />
+        <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+      </Style>
+      <Style x:Key="ModuleHaderStackStyle"  TargetType="StackLayout">
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="Padding" Value="15,5,20,5" />
+        <Setter Property="BackgroundColor" Value="#141b3d" />
+      </Style>
+      <Style x:Key="ModuleItemStackStyle"  TargetType="StackLayout">
+        <Setter Property="Padding" Value="5,3,20,3" />
+      </Style>
+      <Style x:Key="WhiteBorderStyle"  TargetType="StackLayout">
+        <Setter Property="BackgroundColor" Value="Gray" />
+        <Setter Property="HeightRequest" Value="1" />
+        <Setter Property="Opacity" Value="0.2" />
+      </Style>
+      <Style x:Key="ModuleItemMAINStackStyle"  TargetType="StackLayout">
+        <Setter Property="Padding" Value="20,0,0,5" />
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="Fill" x:Name="SideMenuMainStack" >
+      <StackLayout HeightRequest="65" BackgroundColor="#f47421" VerticalOptions="Center" HorizontalOptions="Fill" Padding="10,0,0,0">
+        <Label x:Name="MenuHeader" ClassId="MENU" Text="{x:Static local:AppResources.LMenu}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" HorizontalTextAlignment="Center" TextColor="White" VerticalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+        </StackLayout>
+    <ScrollView>
+      <StackLayout VerticalOptions="FillAndExpand" Padding="0,0,0,10" >
+        <!-- Home  -->
+        <StackLayout x:Name="HeaderStackHome" Style="{StaticResource ModuleHaderStackStyle}">
+          <Label x:Name="HomeHeader" Style="{StaticResource ModuleHeaderName}" Text="{x:Static local:AppResources.LHome}"/>
+        </StackLayout>
+        <StackLayout Style="{StaticResource WhiteBorderStyle}"/>
+        <!-- CM Office -->
+        <StackLayout  x:Name="HeaderStackCMOffice" Style="{StaticResource ModuleHaderStackStyle}">
+          <Label x:Name="CMOfficeHeader" Style="{StaticResource ModuleHeaderName}" Text="{x:Static local:AppResources.LCmOffice}"/>
+          <Image x:Name="CMOfficeImage"  Style="{StaticResource ImageRightArrowStyle}"/>
+        </StackLayout>
+        <StackLayout x:Name="StackCMOffice" Style="{StaticResource ModuleItemMAINStackStyle}">
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemTeamCMO"   Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LTeamcmo}" />
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemFormerCMs" Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LFormercmo}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemCMsReliefFund" Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LCmReliefsFund}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemContactCMO"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LContactcmo}"/>
+          </StackLayout>
+        </StackLayout>
+          <StackLayout  Style="{StaticResource WhiteBorderStyle}"/>
+        <!-- Chief Minister -->
+        <StackLayout x:Name="HeaderStackChiefMinister" Style="{StaticResource ModuleHaderStackStyle}">
+          <Label  x:Name="ChiefMinisterHeader" Style="{StaticResource ModuleHeaderName}" Text="{x:Static local:AppResources.LTheChiefMinister}"/>
+          <Image  x:Name="ChiefMinisterImage"  Style="{StaticResource ImageRightArrowStyle}" />
+        </StackLayout>
+        <StackLayout  x:Name="StackCheifMinister" Style="{StaticResource ModuleItemMAINStackStyle}">
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemBiography"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LBiography}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemVissionMissionOath"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LVisionMissionOath}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemPersonalWebsite"   Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LPersonalWebsite}"/>
+          </StackLayout>
+        </StackLayout>
+          <StackLayout Style="{StaticResource WhiteBorderStyle}"/>
+        <!-- Initiatives -->
+        <StackLayout x:Name="HeaderStackInitiatives" Style="{StaticResource ModuleHaderStackStyle}">
+          <Label  x:Name="InititiativesHeader" Style="{StaticResource ModuleHeaderName}" Text="{x:Static local:AppResources.LInitiatives}"/>
+          <!--<Image Source="ico_down_arrow2_right.png" x:Name="InititiativesImage" HorizontalOptions="EndAndExpand" />-->
+        </StackLayout>
+        <StackLayout x:Name="StackInitiatives" Style="{StaticResource ModuleItemMAINStackStyle}">
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemDroughtFreeMaharashtra"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LDroughtFreeMaharashtra}" />
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemSwatchMaharashtra"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LSwachhMaharashtra}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemMakeInMaharashtra"   Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LMakeInMaharashtra}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemSkillDevelopment"   Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LSkillDevelopment}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemRightToService"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LRightToService}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemDigitalMaharashtra"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LDigitalMaharashtra}"/>
+          </StackLayout>
+        </StackLayout>
+          <StackLayout Style="{StaticResource WhiteBorderStyle}"/>
+        <!-- Team Maharashtra -->
+        <StackLayout x:Name="HeaderStackTeamMaharashtra" Style="{StaticResource ModuleHaderStackStyle}">
+          <Label x:Name="TeamMaharashtraHeader" Style="{StaticResource ModuleHeaderName}" Text="{x:Static local:AppResources.LTeamMaharashtra}"/>
+          <Image x:Name="TeamMaharashtraImage"  Style="{StaticResource ImageRightArrowStyle}" />
+        </StackLayout>
+        <StackLayout x:Name="StackTeamMaharashtra" Style="{StaticResource ModuleItemMAINStackStyle}">
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemGoverner"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LGovernor}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemCabinetMinister"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LCabinetMinister}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemStateMinister"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LStateMinisters}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemChiefJustice"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LMenuChiefMinister}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemSecretaries"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LSecretaries}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemCollectors"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LCollectors}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemGovtDepartment"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LGovtDepartment}"/>
+          </StackLayout>
+        </StackLayout>
+          <StackLayout Style="{StaticResource WhiteBorderStyle}"/>
+        <!-- CM Visit-->
+        <StackLayout x:Name="HeaderStackCMVisit" Style="{StaticResource ModuleHaderStackStyle}">
+          <Label x:Name="CMVisitHeader" Style="{StaticResource ModuleHeaderName}" Text="{x:Static local:AppResources.LCmVisits}"/>
+          <Image x:Name="CMVisitImage"  Style="{StaticResource ImageRightArrowStyle}" />
+        </StackLayout>
+        <StackLayout x:Name="StackCMVisit" Style="{StaticResource ModuleItemMAINStackStyle}">
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemMakeInMaharashtraGoesInternational"   Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LForeignVisits}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemMaharashtraVisits"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LMaharashtraVisits}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemJalyuktaVisit"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LJalyuktaVisits}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemEvents"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LEvents}" />
+          </StackLayout>
+        </StackLayout>
+        <StackLayout Style="{StaticResource WhiteBorderStyle}"/>
+        <!-- Gallery -->
+        <StackLayout x:Name="HeaderStackMediaGallery" Style="{StaticResource ModuleHaderStackStyle}">
+          <Label x:Name="MediaGalleryHeader" Style="{StaticResource ModuleHeaderName}" Text="{x:Static local:AppResources.LGallery}"/>
+          <Image x:Name="MediaGalleryImage"  Style="{StaticResource ImageRightArrowStyle}" />
+        </StackLayout>
+        <StackLayout x:Name="StackMediaGallery" Style="{StaticResource ModuleItemMAINStackStyle}">
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemNewsGallery"   Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LNewsGallery}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemMagazineGallery"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LMagazineGallery}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemPhotoGallery"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LMenuPhotoGallery}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemVideoGallery"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LMenuVideoGallery}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemPressReleases"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LMenuPressRelease}"/>
+          </StackLayout>
+        </StackLayout>
+          <StackLayout Style="{StaticResource WhiteBorderStyle}"/>
+        <!-- Join Us -->
+        <StackLayout x:Name="HeaderStackJoinUs" Style="{StaticResource ModuleHaderStackStyle}">
+          <Label x:Name="JoinUsHeader" Style="{StaticResource ModuleHeaderName}" Text="{x:Static local:AppResources.LJoinUs}"/>
+          <Image x:Name="JoinUsImage"  Style="{StaticResource ImageRightArrowStyle}" IsVisible="false" />
+        </StackLayout>
+        <StackLayout x:Name="StackJoinUs" Style="{StaticResource ModuleItemMAINStackStyle}">
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemApleSarkar"  Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LAapleSarkar}" />
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemSocialResponsibilityCell"  Style="{StaticResource ModuleItemName}"  Text="{x:Static local:AppResources.LSocialResponsibilityCell}"/>
+          </StackLayout>
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+            <Label x:Name="ItemCMsInternshipProgram" Style="{StaticResource ModuleItemName}" Text="{x:Static local:AppResources.LCmInternshipProgram}"/>
+          </StackLayout>
+        </StackLayout>
+          <StackLayout Style="{StaticResource WhiteBorderStyle}"/>
+        <!--Changelanguage-->
+        <StackLayout  x:Name="ChangeLanguageStackHeader" Style="{StaticResource ModuleHaderStackStyle}">
+          <Label x:Name="ChangeLanguageHeaderLabel" Style="{StaticResource ModuleHeaderName}" Text="{x:Static local:AppResources.LChangeLanguage}"/>
+          <Image x:Name="ChangeLanguageImage"       Style="{StaticResource ImageRightArrowStyle}" IsVisible="false"/>
+        </StackLayout>
+        <StackLayout x:Name="StackChangeLanguage" Style="{StaticResource ModuleItemMAINStackStyle}" >
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="3*" />
+              <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0"  Grid.Column="0" Text="English"  HorizontalTextAlignment="Start"  Style="{StaticResource ModuleItemName}" />
+            <Switch  Grid.Row="0" Grid.Column="1" x:Name="EnglishChangeLanguageSwitch" HorizontalOptions="End" VerticalOptions="Center" />
+            <Label Grid.Row="1"  Grid.Column="0" Text="मराठी" HorizontalTextAlignment="Start"   Style="{StaticResource ModuleItemName}" />
+            <Switch Grid.Row="1" Grid.Column="1" x:Name="MarathiChangeLanguageSwitch" HorizontalOptions="End" VerticalOptions="Center" />
+          </Grid>
+        </StackLayout>
+        <StackLayout Style="{StaticResource WhiteBorderStyle}"/>
+        <!--Application List-->
+        <StackLayout  x:Name="HeaderStackApplicationList" Style="{StaticResource ModuleHaderStackStyle}">
+          <Label x:Name="ApplicationListHeader" Style="{StaticResource ModuleHeaderName}" Text="{x:Static local:AppResources.LApplicationList}"/>
+          <Image x:Name="ApplicationListImage"  Style="{StaticResource ImageRightArrowStyle}"  IsVisible="false"/>
+        </StackLayout>
+        <StackLayout x:Name="StackApplicationList" Style="{StaticResource ModuleItemMAINStackStyle}" >
+          <StackLayout Style="{StaticResource ModuleItemStackStyle}">
+           <ListView x:Name="AppList" SeparatorVisibility="None" BackgroundColor="#141b3d" HorizontalOptions="Start" VerticalOptions="Center" >
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell StyleId="none" >
+                  <ViewCell.View >
+                    <Grid BackgroundColor="#141b3d" Padding="0,3,0,3">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                      </Grid.ColumnDefinitions>
+                          <Image  Source="{Binding Icon}" Grid.Column="0" />
+                      <Label Grid.Column="1" Text="{Binding Name}" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" VerticalOptions="Center" TextColor="White" LineBreakMode="WordWrap" />
+                      <Button Grid.Column="2"  ClassId="{Binding ButtonTap}" Text="{Binding AppStatus}" Clicked="AppStatusButtonCLicked"  Style="{StaticResource buttonStyle}" />
+                    </Grid>
+                  </ViewCell.View>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+        </StackLayout>
+        </StackLayout>
+        <StackLayout Style="{StaticResource WhiteBorderStyle}"/>
+      </StackLayout>
+    </ScrollView>
+</StackLayout>
+  </ContentPage.Content>
+</ContentPage>

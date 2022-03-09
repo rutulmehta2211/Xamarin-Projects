@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.MenuController.ApplicationList"
+              BackgroundColor="#141b3d"
+  Padding="5">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+        <Style x:Key="buttonStyle" TargetType="Button">
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="#132561" />
+      </Style>
+       </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+     <StackLayout HorizontalOptions="Center" VerticalOptions="FillAndExpand"  BackgroundColor="Transparent" >
+      <StackLayout x:Name="loadingIndicator">
+        <ActivityIndicator x:Name="loading" IsRunning="True"
+                       HorizontalOptions="Center" VerticalOptions="Center" Color="White"/>
+      </StackLayout>
+     <ListView SeparatorVisibility="None" x:Name="AppList"  BackgroundColor="#141b3d" HorizontalOptions="FillAndExpand" VerticalOptions="Fill"  IsVisible="false" HasUnevenRows="true">
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell StyleId="none" >
+                  <ViewCell.View >
+                    <Grid BackgroundColor="#141b3d" Padding="0,5,0,5">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                      </Grid.ColumnDefinitions>
+                      <Image Source="applicationListIcon.png" Grid.Column="0" WidthRequest="40" HeightRequest="40" Aspect="AspectFill"/>
+                      <Image Source="{Binding Icon}" Grid.Column="0" WidthRequest="40" HeightRequest="40" Aspect="AspectFill" />
+                      <Label Grid.Column="1" Text="{Binding Name}" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" VerticalOptions="Center" TextColor="White" LineBreakMode="WordWrap" FontSize="{Binding SetFontSize}"/>
+                      <Button Grid.Column="2"  ClassId="{Binding PackageName}" Text="{Binding AppStatus}" Clicked="AppStatusButtonCLicked"  Style="{StaticResource buttonStyle}" FontSize="{Binding SetFontSize}" WidthRequest="60"/>
+                    </Grid>
+                  </ViewCell.View>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+      </StackLayout>
+     </ContentPage.Content>
+</ContentPage>

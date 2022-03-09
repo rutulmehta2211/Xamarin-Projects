@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.CMVisits.MaharashtraVisit">
+  <ContentPage.Content>
+    <StackLayout>
+      <ListView  x:Name="PhotosList" SeparatorVisibility="None" >
+        <ListView.ItemTemplate>
+          <DataTemplate >
+            <ViewCell StyleId="none"  >
+              <ViewCell.View  >
+  <Grid  BackgroundColor="Black" Padding="5,5,5,5" HorizontalOptions="Fill">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Grid  Grid.Column="0" Padding="5,5,5,5" BackgroundColor="Black" ClassId="{Binding LeftPhotoId}">
+    <Image  Source="photo_gallery.png" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="Fill"/>
+    <Label x:Name="PhotoGalleryLabel" Text="Photo Gallery" HorizontalTextAlignment="Center"  HorizontalOptions="Fill" VerticalOptions="End"  TextColor="White" BackgroundColor="#132561"  />
+      <Grid.GestureRecognizers>
+        <TapGestureRecognizer Tapped="LeftPhotoTapped"/>
+      </Grid.GestureRecognizers>
+    </Grid>
+    <!--<Grid  Grid.Column="1" Padding="5,5,5,5" BackgroundColor="Black" ClassId="{Binding RighPhotoId}">
+      <Image Source="video_gallery.png" HorizontalOptions="Fill" VerticalOptions="Fill" Aspect="Fill"/>
+    <Label x:Name="VideoGalleryLabel"  Text="Video Gallery"  HorizontalTextAlignment="Center"  HorizontalOptions="Fill" VerticalOptions="End"  TextColor="White" BackgroundColor="#132561" />
+      <Grid.GestureRecognizers>
+        <TapGestureRecognizer Tapped="RightPhotoTapped"/>
+      </Grid.GestureRecognizers>
+    </Grid>-->
+    </Grid>
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C27E7F4E-6A6C-495D-AD81-1170F8D8651B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CMO</RootNamespace>
+    <AssemblyName>CMO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="AppResources.mr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.mr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ChiefMinister\ChiefMinisterContentPage.xaml.cs">
+      <DependentUpon>ChiefMinisterContentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChiefMinister\VisionMissionOath.xaml.cs">
+      <DependentUpon>VisionMissionOath.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMOffice\CMReliefFund.xaml.cs">
+      <DependentUpon>CMReliefFund.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMOffice\Contact_CMO.xaml.cs">
+      <DependentUpon>Contact_CMO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMOffice\FormerCMs.xaml.cs">
+      <DependentUpon>FormerCMs.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMOffice\FormerCMs_Marathi.xaml.cs">
+      <DependentUpon>FormerCMs_Marathi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMOffice\TeamCMO.xaml.cs">
+      <DependentUpon>TeamCMO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMOffice\TeamCMO_Marathi.xaml.cs">
+      <DependentUpon>TeamCMO_Marathi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMVisits\EventsDetail.xaml.cs">
+      <DependentUpon>EventsDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMVisits\Eventslists.xaml.cs">
+      <DependentUpon>Eventslists.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMVisits\JalyuktaVisits.xaml.cs">
+      <DependentUpon>JalyuktaVisits.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMVisits\JalyuktaVisitsDetail.xaml.cs">
+      <DependentUpon>JalyuktaVisitsDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMVisits\MaharashtraVisit.xaml.cs">
+      <DependentUpon>MaharashtraVisit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMVisits\MaharashtraVisitList.xaml.cs">
+      <DependentUpon>MaharashtraVisitList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMVisits\MaharashtraVisitsDetail.xaml.cs">
+      <DependentUpon>MaharashtraVisitsDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMVisits\MakeInMaharashtraGoesInternational.xaml.cs">
+      <DependentUpon>MakeInMaharashtraGoesInternational.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMVisits\MakeInMaharashtraGoesInternationalDetail.xaml.cs">
+      <DependentUpon>MakeInMaharashtraGoesInternationalDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CMVisits\MakeInMaharashtraInternationalMain.xaml.cs">
+      <DependentUpon>MakeInMaharashtraInternationalMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery\ComingSoonPage.xaml.cs">
+      <DependentUpon>ComingSoonPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery\MagazineGallery.xaml.cs">
+      <DependentUpon>MagazineGallery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery\NewsGalleryDetail.xaml.cs">
+      <DependentUpon>NewsGalleryDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery\NewsGalleryListPage.xaml.cs">
+      <DependentUpon>NewsGalleryListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery\PhotoGalleryListPage.xaml.cs">
+      <DependentUpon>PhotoGalleryListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery\PhotosListDetail.xaml.cs">
+      <DependentUpon>PhotosListDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery\VideoGallery.xaml.cs">
+      <DependentUpon>VideoGallery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralClass.cs" />
+    <Compile Include="IAndroidMethods.cs" />
+    <Compile Include="Initiatives\InitiativesMain.xaml.cs">
+      <DependentUpon>InitiativesMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JoinUs\JoinUsContentPage.xaml.cs">
+      <DependentUpon>JoinUsContentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuController\ApplicationList.xaml.cs">
+      <DependentUpon>ApplicationList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuController\ChangeLanguage.xaml.cs">
+      <DependentUpon>ChangeLanguage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuController\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuController\SideMenu.xaml.cs">
+      <DependentUpon>SideMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuController\SideMenuContent.xaml.cs">
+      <DependentUpon>SideMenuContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopupClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceLayer\ServiceClasses.cs" />
+    <Compile Include="TeamMaharashtra\TeamMaharashtraItems.xaml.cs">
+      <DependentUpon>TeamMaharashtraItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Slider\RightSideDetailPage.cs" />
+    <Compile Include="Slider\RightSideMasterPage.xaml.cs">
+      <DependentUpon>RightSideMasterPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Connectivity, Version=2.2.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.2.12\lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+Xamarin.Mac20+UAP10\Plugin.Connectivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions, Version=2.2.12.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.2.2.12\lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+Xamarin.Mac20+UAP10\Plugin.Connectivity.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Refractored.Xam.Vibrate, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.Vibrate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Refractored.Xam.Vibrate.Abstractions, Version=1.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Vibrate.1.0.0.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Refractored.Xam.Vibrate.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Windows">
+      <HintPath>C:\Program Files (x86)\Windows Phone Kits\8.1\References\CommonConfiguration\Neutral\Windows.winmd</HintPath>
+    </Reference>
+    <Reference Include="SlideOverKit">
+      <HintPath>..\..\packages\SlideOverKit.2.1.4\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SlideOverKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.168\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.168\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\..\packages\Xamarin.Forms.2.3.3.168\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="GettingStarted.Xamarin" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppResources.mr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.mr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CMVisits\MakeInMaharashtraGoesInternational.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CMVisits\MakeInMaharashtraGoesInternationalDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuController\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slider\RightSideMasterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MenuController\SideMenu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MenuController\SideMenuContent.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMOffice\CMReliefFund.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CMOffice\Contact_CMO.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CMOffice\FormerCMs.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CMOffice\FormerCMs_Marathi.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CMOffice\TeamCMO.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CMOffice\TeamCMO_Marathi.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TeamMaharashtra\TeamMaharashtraItems.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMVisits\MaharashtraVisit.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMVisits\MaharashtraVisitsDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMVisits\JalyuktaVisits.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMVisits\JalyuktaVisitsDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMVisits\Eventslists.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMVisits\EventsDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMVisits\MaharashtraVisitList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Initiatives\InitiativesMain.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ChiefMinister\VisionMissionOath.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gallery\MagazineGallery.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MenuController\ChangeLanguage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gallery\NewsGalleryListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gallery\NewsGalleryDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gallery\PhotoGalleryListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gallery\PhotosListDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gallery\VideoGallery.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gallery\ComingSoonPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ChiefMinister\ChiefMinisterContentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MenuController\ApplicationList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CMVisits\MakeInMaharashtraInternationalMain.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="JoinUs\JoinUsContentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Slider\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\..\packages\Xamarin.Forms.2.3.3.168\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.168\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
+</Project>

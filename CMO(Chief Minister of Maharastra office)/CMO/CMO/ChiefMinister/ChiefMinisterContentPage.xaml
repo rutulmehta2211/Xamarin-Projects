@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CMO.ChiefMinister.ChiefMinisterContentPage"	
+             xmlns:local = "clr-namespace:CMO;assembly=CMO"
+             xmlns:localConverter = "clr-namespace:CMO.ChiefMinister;assembly=CMO"
+             BackgroundColor="#09091a"
+		 Padding="10"
+		>
+  <ContentPage.Resources>
+    <ResourceDictionary>
+	
+	<Style x:Key="ItemStack"  TargetType="StackLayout">
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="BackgroundColor" Value="#09091a" />
+		<Setter Property="Padding" Value="7,7,0,7" />
+    </Style>
+    <Style x:Key="ItemLabel"  TargetType="Label">
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+	<Style x:Key="ItemImage"  TargetType="Image">
+        <Setter Property="Aspect" Value="Fill" />
+        <Setter Property="VerticalOptions" Value="Center" />	
+	</Style>
+	<Style x:Key="ModuleStack"  TargetType="StackLayout">
+       <Setter Property="BackgroundColor" Value="#09091a" />
+		<Setter Property="Padding" Value="0,10,0,0" />
+        <Setter Property="IsVisible" Value="false" />
+    </Style>
+		
+      <localConverter:TextColorConverter x:Key="TextColorConverter"/>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <StackLayout VerticalOptions="Fill"  Padding="5,5,5,5" HorizontalOptions="FillAndExpand">
+	<ScrollView>
+      <StackLayout   Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="0">
+        <Image x:Name="imgHeader" Aspect="Fill"  HorizontalOptions="FillAndExpand"  VerticalOptions="Center"  />
+          <StackLayout BackgroundColor="#132561" x:Name="DataStack" >
+            <Label  x:Name="lblName" TextColor="White" FontAttributes="Bold" />
+		  </StackLayout>
+          <StackLayout  Padding="10" BackgroundColor="#132561">
+            <Label x:Name="lblDescription" TextColor="White" />
+          </StackLayout>
+
+         <StackLayout x:Name="TeamMaharashtraStack" Style="{StaticResource ModuleStack}">
+                 <StackLayout x:Name="ContentStack1" Style="{StaticResource ItemStack}"  ClassId="40">
+                     <Image  Source="ico_governer"  x:Name="ContentImage1" Style="{StaticResource ItemImage}" />
+                     <Label  x:Name="ContentLabel1" Style="{StaticResource ItemLabel}" Text="{x:Static local:AppResources.LGovernor}"  />
+			    	<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="TapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="ContentStack2" Style="{StaticResource ItemStack}" ClassId="41">
+                     <Image  Source="ico_cabinate_miniter"  x:Name="ContentImage2" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="ContentLabel2" Style="{StaticResource ItemLabel}"  Text="{x:Static local:AppResources.LCabinetMinister}" />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="TapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="ContentStack3" Style="{StaticResource ItemStack}" ClassId="42">
+                     <Image  Source="ico_state_minister"  x:Name="ContentImage3" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="ContentLabel3" Style="{StaticResource ItemLabel}"  Text="{x:Static local:AppResources.LStateMinisters}" />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="TapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="ContentStack4" Style="{StaticResource ItemStack}" ClassId="43">
+                     <Image  Source="ico_chief_justice"  x:Name="ContentImage4" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="ContentLabel4" Style="{StaticResource ItemLabel}" Text="{x:Static local:AppResources.LMenuChiefMinister}"  />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="TapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="ContentStack5" Style="{StaticResource ItemStack}" ClassId="44">
+                     <Image  Source="ico_sacretaries"  x:Name="ContentImage5" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="ContentLabel5" Style="{StaticResource ItemLabel}"  Text="{x:Static local:AppResources.LSecretaries}" />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="TapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="ContentStack6" Style="{StaticResource ItemStack}" ClassId="45">
+                     <Image  Source="ico_collectors"  x:Name="ContentImage6" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="ContentLabel6" Style="{StaticResource ItemLabel}"  Text="{x:Static local:AppResources.LCollectors}" />
+					 <StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="TapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="ContentStack7" Style="{StaticResource ItemStack}" ClassId="47">
+                     <Image  Source="ico_govt_dept"  x:Name="ContentImage7" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="ContentLabel7" Style="{StaticResource ItemLabel}"  Text="{x:Static local:AppResources.LGovtDepartment}" />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="TapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+            </StackLayout>
+				
+         <StackLayout x:Name="CheifMinisterStack" Style="{StaticResource ModuleStack}" >
+                 <StackLayout x:Name="CMContentStack1" Style="{StaticResource ItemStack}" ClassId="ChiefMinister1" >
+                     <Image  Source="ico_biography"  x:Name="CMContentImage1" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="CMContentLabel1" Style="{StaticResource ItemLabel}"   Text="{x:Static local:AppResources.LBiography}"/>
+			    	<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="CMTapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="CMContentStack2" Style="{StaticResource ItemStack}" ClassId="ChiefMinister2">
+                     <Image  Source="ico_vision"  x:Name="CMContentImage2" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="CMContentLabel2" Style="{StaticResource ItemLabel}" Text="{x:Static local:AppResources.LVisionMissionOath}"  />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="CMTapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="CMContentStack3" Style="{StaticResource ItemStack}" ClassId="ChiefMinister3">
+                     <Image  Source="ico_per_web"  x:Name="CMContentImage3" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="CMContentLabel3" Style="{StaticResource ItemLabel}"  Text="{x:Static local:AppResources.LPersonalWebsite}" />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="CMTapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				</StackLayout>
+				 
+		 <StackLayout x:Name="CMVisitStack" Style="{StaticResource ModuleStack}">
+                 <StackLayout x:Name="CMVisitContentStack1" Style="{StaticResource ItemStack}" ClassId="CMVisit1" >
+                     <Image Source="ico_make_in_maha" x:Name="CMVisitContentImage1" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="CMVisitContentLabel1" Style="{StaticResource ItemLabel}"  Text="{x:Static local:AppResources.LForeignVisits}" />
+			    	<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="CMVisitTapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="CMVisitContentStack2" Style="{StaticResource ItemStack}"  ClassId="CMVisit2">
+                     <Image Source="ico_maha_visit" x:Name="CMVisitContentImage2" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="CMVisitContentLabel2" Style="{StaticResource ItemLabel}"  Text="{x:Static local:AppResources.LMaharashtraVisits}" />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="CMVisitTapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="CMVisitContentStack3" Style="{StaticResource ItemStack}" ClassId="CMVisit3" >
+                     <Image  Source="ico_jalyukt"  x:Name="CMVisitContentImage3" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="CMVisitContentLabel3" Style="{StaticResource ItemLabel}"  Text="{x:Static local:AppResources.LJalyuktaVisits}" />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="CMVisitTapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="CMVisitContentStack4" Style="{StaticResource ItemStack}"  ClassId="CMVisit4">
+                     <Image  Source="ico_events"  x:Name="CMVisitContentImage4" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="CMVisitContentLabel4" Style="{StaticResource ItemLabel}"  Text="{x:Static local:AppResources.LEvents}" />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="CMVisitTapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				</StackLayout>
+
+		 <StackLayout x:Name="JoinUsStack" Style="{StaticResource ModuleStack}" >
+                 <StackLayout x:Name="JoinUsContentStack1" Style="{StaticResource ItemStack}" ClassId="https://aaplesarkar.maharashtra.gov.in/">
+                     <Image  Source="ico_aaple_sarkar"  x:Name="JoinUsContentImage1" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="JoinUsContentLabel1" Style="{StaticResource ItemLabel}"   Text="{x:Static local:AppResources.LAapleSarkar}"/>
+			    	<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="JoinUsTapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="JoinUsContentStack2" Style="{StaticResource ItemStack}" ClassId="http://14.141.36.213/srcportal/">
+                     <Image  Source="ico_soc_respon_cell"  x:Name="JoinUsContentImage2" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="JoinUsContentLabel2" Style="{StaticResource ItemLabel}" Text="{x:Static local:AppResources.LSocialResponsibilityCell}"  />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="JoinUsTapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				 <StackLayout x:Name="JoinUsContentStack3" Style="{StaticResource ItemStack}" ClassId="https://mahades.maharashtra.gov.in/FELLOWSHIP/english/about.html">
+                     <Image  Source="ico_cms_intern_prog"  x:Name="JoinUsContentImage3" Style="{StaticResource ItemImage}" />
+                     <Label x:Name="JoinUsContentLabel3" Style="{StaticResource ItemLabel}"  Text="{x:Static local:AppResources.LCmInternshipProgram}" />
+					<StackLayout.GestureRecognizers>
+                   		<TapGestureRecognizer Tapped="JoinUsTapContentItem" NumberOfTapsRequired="1" />
+                	</StackLayout.GestureRecognizers>
+                 </StackLayout>
+				</StackLayout>
+      </StackLayout>
+	</ScrollView>
+    </StackLayout>
+  </ContentPage.Content>
+  </ContentPage>
