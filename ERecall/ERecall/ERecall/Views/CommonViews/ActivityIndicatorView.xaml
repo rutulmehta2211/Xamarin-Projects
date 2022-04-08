@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.CommonViews.ActivityIndicatorView">
+  <ContentView.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Image x:Name="imgLoading" Source="icon_loading_blue.png" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image.HeightRequest>
+                    <OnIdiom x:TypeArguments="x:Double" Phone="60" Tablet="75"/>
+                </Image.HeightRequest>
+                <Image.WidthRequest>
+                    <OnIdiom x:TypeArguments="x:Double" Phone="60" Tablet="75"/>
+                </Image.WidthRequest>
+            </Image>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

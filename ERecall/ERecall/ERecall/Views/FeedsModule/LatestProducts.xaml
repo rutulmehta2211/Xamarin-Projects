@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.FeedsModule.LatestProducts"
+             xmlns:customView="clr-namespace:ERecall.Views.CommonViews;assembly=ERecall"
+             xmlns:control="clr-namespace:ERecall.Controls;assembly=ERecall"
+             xmlns:local="clr-namespace:ERecall;assembly=ERecall"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="#f8f8f8">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelHeaderStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="#303030" />
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="0,0,0,5" Tablet="0,0,0,6" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="LabelDateStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="#a0a0a0" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+            </Style>
+            <Style x:Key="eRecallIconStyle" TargetType="ffimageloading:CachedImage">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="25" Tablet="30"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="25" Tablet="30"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            <Style x:Key="SmallIconStyle" TargetType="ffimageloading:CachedImage">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="15" Tablet="20"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="15" Tablet="20"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="productImgStyle" TargetType="ffimageloading:CachedImage">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="100" Tablet="120"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="100" Tablet="120"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Aspect" Value="Fill"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="DownsampleToViewSize" Value="True"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid x:Name="MaingrdForms">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ListView Grid.Row="0" x:Name="lstLatestProducts" HasUnevenRows="True"
+                          ItemAppearing="LstLoadmore"
+                          IsPullToRefreshEnabled="true"
+                          Refreshing="LstPulled"
+                          CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <!--<Grid Padding="10" ColumnSpacing="5" ClassId="{Binding ProductId}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center">
+                                            <Grid.HeightRequest>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="100" Tablet="120"/>
+                                            </Grid.HeightRequest>
+                                            <Grid.WidthRequest>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="100" Tablet="120"/>
+                                            </Grid.WidthRequest>
+                                            <ffimageloading:CachedImage Source="{Binding PlaceholderImg}" Style="{StaticResource productImgStyle}"/>
+                                            <ffimageloading:CachedImage Source="{Binding ProductImg}" Style="{StaticResource productImgStyle}"/>
+                                        </Grid>
+                                        <StackLayout Grid.Column="1" VerticalOptions="Center">
+                                            <control:CustomLabel Text="{Binding ProductName}" Style="{StaticResource LabelHeaderStyle}"/>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Orientation="Horizontal" Grid.Column="0">
+                                                    <ffimageloading:CachedImage Source="{Binding imgCategory}" Style="{StaticResource SmallIconStyle}"/>
+                                                    <Label Text="{Binding SubscriptionCategory}" Style="{StaticResource LabelDateStyle}" />
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Grid.Column="1">
+                                                    <ffimageloading:CachedImage Source="icon_calendar.png" Style="{StaticResource SmallIconStyle}"/>
+                                                    <Label Text="{Binding CreatedDate}" Style="{StaticResource LabelDateStyle}" />
+                                                </StackLayout>
+                                            </Grid>
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="2" VerticalOptions="Start" HorizontalOptions="Start" Padding="7">
+                                            <ffimageloading:CachedImage Source="{Binding eRecallIconImage}" Style="{StaticResource eRecallIconStyle}" ClassId="{Binding ProductId}">
+                                                <ffimageloading:CachedImage.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="eRecallIconImage_Tapped" NumberOfTapsRequired="1" />
+                                                </ffimageloading:CachedImage.GestureRecognizers>
+                                            </ffimageloading:CachedImage>
+                                        </StackLayout>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="grdItem_Tapped" NumberOfTapsRequired="1" />
+                                        </Grid.GestureRecognizers>
+                                    </Grid>-->
+                                    <Frame Margin="10" Padding="0" HasShadow="True">
+                                        <StackLayout>
+                                            <Grid BackgroundColor="White" ColumnSpacing="5" ClassId="{Binding ProductId}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="100"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
+                                                    <ffimageloading:CachedImage Source="{Binding ProductImg}" LoadingPlaceholder="{Binding PlaceholderImg}" DownsampleToViewSize="True" Style="{StaticResource productImgStyle}"/>
+                                                </Grid>
+                                                <StackLayout Grid.Column="1" Grid.Row="0" Padding="5" VerticalOptions="Center">
+                                                    <control:CustomLabel Text="{Binding ProductName}" Style="{StaticResource LabelHeaderStyle}"/>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <StackLayout Orientation="Horizontal" Grid.Column="0">
+                                                            <ffimageloading:CachedImage Source="{Binding imgCategory}" Style="{StaticResource SmallIconStyle}"/>
+                                                            <Label Text="{Binding SubscriptionCategory}" Style="{StaticResource LabelDateStyle}" />
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Horizontal" Grid.Column="1">
+                                                            <ffimageloading:CachedImage Source="icon_calendar.png" Style="{StaticResource SmallIconStyle}"/>
+                                                            <Label Text="{Binding CreatedDate}" Style="{StaticResource LabelDateStyle}" />
+                                                        </StackLayout>
+                                                    </Grid>
+                                                </StackLayout>
+                                                <StackLayout Grid.Column="2" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Start" Padding="7">
+                                                    <ffimageloading:CachedImage Source="{Binding eRecallIconImage}" Style="{StaticResource eRecallIconStyle}" ClassId="{Binding ProductId}">
+                                                        <ffimageloading:CachedImage.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="eRecallIconImage_Tapped" NumberOfTapsRequired="1" />
+                                                        </ffimageloading:CachedImage.GestureRecognizers>
+                                                    </ffimageloading:CachedImage>
+                                                </StackLayout>
+                                                <Grid.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="grdItem_Tapped" NumberOfTapsRequired="1" />
+                                                </Grid.GestureRecognizers>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Grid.Row="0" x:Name="lblNoRecordFound" Text="No Record found" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            </Grid>
+            <Grid x:Name="MaingrdAlert" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                <customView:AlertView x:Name="CustAlertView"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="MaingrdAlert_Tapped"
+                            NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+            </Grid>
+            <customView:ActivityIndicatorView x:Name="LoadingIndicator"/>
+        </Grid>
+    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="icon_search.png" Order="Primary" Priority="0" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

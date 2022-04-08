@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.Products"
+             xmlns:customView="clr-namespace:ERecall.Views.CommonViews;assembly=ERecall"
+             xmlns:local="clr-namespace:ERecall;assembly=ERecall"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Title="Products Center"
+             BackgroundColor="#f8f8f8">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="iconProducts" TargetType="ffimageloading:CachedImage">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="30" Tablet="50"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="30" Tablet="50"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="LabelProduct" TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="LineBreakMode" Value="TailTruncation"/>
+            </Style>
+            <Style x:Key="BoxViewVertical" TargetType="BoxView">
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="Color" Value="#2c5dd4" />
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="1" Tablet="2"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="BoxViewHorizontal" TargetType="BoxView">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="Fill" />
+                <Setter Property="Color" Value="#2c5dd4" />
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="1" Tablet="2"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="LabelCatTitleCount" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="LabelSeeAll" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="#5990ff" />
+                <Setter Property="HorizontalTextAlignment" Value="End"/>
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="LabelLastUpdate" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="#a0a0a0" />
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                <Setter Property="VerticalTextAlignment" Value="Start"/>
+            </Style>
+            <Style x:Key="LabelLastUpdateData" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                <Setter Property="VerticalTextAlignment" Value="Start"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <ScrollView>
+                <Grid x:Name="MaingrdForms" RowSpacing="10" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" ColumnSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="3.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <ffimageloading:CachedImage Source="product_foods.png" Style="{StaticResource iconProducts}"/>
+                            <Label Text="Food" Style="{StaticResource LabelProduct}"/>
+                        </StackLayout>
+                        <BoxView Grid.Column="1" Style="{StaticResource BoxViewVertical}"/>
+                        <StackLayout Grid.Column="2" HorizontalOptions="Fill" VerticalOptions="Fill">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="lblFoodItemCount" Style="{StaticResource LabelCatTitleCount}" />
+                                <Label Text="See All" Style="{StaticResource LabelSeeAll}" ClassId="1">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="lblSeeAllFoods_Tapped" NumberOfTapsRequired="1"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Text="Last Update: " Style="{StaticResource LabelLastUpdate}" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="1" x:Name="lblFoodLastUpdateData" Style="{StaticResource LabelLastUpdateData}"/>
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+                    <BoxView Grid.Row="1" Style="{StaticResource BoxViewHorizontal}"/>
+                    <Grid Grid.Row="2" ColumnSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="3.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <ffimageloading:CachedImage Source="product.png" Style="{StaticResource iconProducts}"/>
+                            <Label Text="Products" Style="{StaticResource LabelProduct}"/>
+                        </StackLayout>
+                        <BoxView Grid.Column="1" Style="{StaticResource BoxViewVertical}"/>
+                        <StackLayout Grid.Column="2" HorizontalOptions="Fill" VerticalOptions="Fill">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="lblProductsItemCount" Style="{StaticResource LabelCatTitleCount}"  />
+                                <Label Text="See All" Style="{StaticResource LabelSeeAll}" ClassId="2">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="lblSeeAllProducts_Tapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Text="Last Update: " Style="{StaticResource LabelLastUpdate}" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="1" x:Name="lblProductsLastUpdateData" Style="{StaticResource LabelLastUpdateData}"/>
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+                    <BoxView Grid.Row="3" Style="{StaticResource BoxViewHorizontal}"/>
+                    <Grid Grid.Row="4" ColumnSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="3.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <ffimageloading:CachedImage Source="product_vehicle.png" Style="{StaticResource iconProducts}"/>
+                            <Label Text="Vehicles" Style="{StaticResource LabelProduct}"/>
+                        </StackLayout>
+                        <BoxView Grid.Column="1" Style="{StaticResource BoxViewVertical}"/>
+                        <StackLayout Grid.Column="2" HorizontalOptions="Fill" VerticalOptions="Fill">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="lblVehicleItemCount" Style="{StaticResource LabelCatTitleCount}" />
+                                <Label Text="See All" Style="{StaticResource LabelSeeAll}" ClassId="3">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="lblSeeAllVehicles_Tapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Text="Last Update: " Style="{StaticResource LabelLastUpdate}" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="1" x:Name="lblVehicleLastUpdateData" Style="{StaticResource LabelLastUpdateData}"/>
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+                    <BoxView Grid.Row="5" Style="{StaticResource BoxViewHorizontal}"/>
+                    <Grid Grid.Row="6" ColumnSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="3.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <ffimageloading:CachedImage Source="product_drugs.png" Style="{StaticResource iconProducts}"/>
+                            <Label Text="Drugs" Style="{StaticResource LabelProduct}"/>
+                        </StackLayout>
+                        <BoxView Grid.Column="1" Style="{StaticResource BoxViewVertical}"/>
+                        <StackLayout Grid.Column="2" HorizontalOptions="Fill" VerticalOptions="Fill">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="lblDrugsItemCount" Style="{StaticResource LabelCatTitleCount}" />
+                                <Label Text="See All" Style="{StaticResource LabelSeeAll}" ClassId="4">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="lblSeeAllDrugs_Tapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Text="Last Update: " Style="{StaticResource LabelLastUpdate}" LineBreakMode="TailTruncation"/>
+                                <Label Grid.Row="1" x:Name="lblDrugsLastUpdateData" Style="{StaticResource LabelLastUpdateData}"/>
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+                    <BoxView Grid.Row="7" Style="{StaticResource BoxViewHorizontal}"/>
+                    <Grid Grid.Row="8" ColumnSpacing="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.7*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="3.3*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Column="0">
+                            <ffimageloading:CachedImage Source="product_medicaldevice.png" Style="{StaticResource iconProducts}"/>
+                            <Label Text="Medical Devices" Style="{StaticResource LabelProduct}"/>
+                        </StackLayout>
+                        <BoxView Grid.Column="1" Style="{StaticResource BoxViewVertical}"/>
+                        <StackLayout Grid.Column="2" HorizontalOptions="Fill" VerticalOptions="Fill">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="lblMedicalDeviceItemCount" Style="{StaticResource LabelCatTitleCount}"  />
+                                <Label Text="See All" Style="{StaticResource LabelSeeAll}" ClassId="5">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="lblSeeAllMedicalDevices_Tapped"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Text="Last Update: " Style="{StaticResource LabelLastUpdate}" />
+                                <Label Grid.Row="1" x:Name="lblMedicalDeviceLastUpdateData" Style="{StaticResource LabelLastUpdateData}"/>
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+            </ScrollView>
+            <Grid x:Name="MaingrdAlert" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                <customView:AlertView x:Name="CustAlertView"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="MaingrdAlert_Tapped"
+                            NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+            </Grid>
+            <customView:ActivityIndicatorView x:Name="LoadingIndicator"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

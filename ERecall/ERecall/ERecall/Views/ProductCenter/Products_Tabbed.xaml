@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:ScrollableTabbed xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="ERecall.Views.ProductCenter.Products_Tabbed"
+            xmlns:local="clr-namespace:ERecall;assembly=ERecall"
+            xmlns:pages="clr-namespace:ERecall.Views.ProductCenter;assembly=ERecall"
+            xmlns:controls="clr-namespace:ERecall.Controls;assembly=ERecall"
+            Title="Products">
+  <!--Pages can be added as references or inline-->
+    <pages:Products_Content Title="ALL"  />
+    <pages:Products_Content Title="FOODS" />
+    <pages:Products_Content Title="PRODUCTS" />
+    <pages:Products_Content Title="VEHICLES" />
+    <pages:Products_Content Title="DRUGS" />
+    <pages:Products_Content Title="MEDICAL DEVICES" />
+</controls:ScrollableTabbed>

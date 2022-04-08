@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.Notifications.Notification_Content"
+             xmlns:customView="clr-namespace:ERecall.Views.CommonViews;assembly=ERecall"
+             xmlns:local="clr-namespace:ERecall;assembly=ERecall"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:Converter="clr-namespace:ERecall.Converters;assembly=ERecall"
+             Title="Notifications"
+             BackgroundColor="#f8f8f8">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="productImgStyle" TargetType="ffimageloading:CachedImage">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="80" Tablet="100"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="80" Tablet="100"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Aspect" Value="Fill"/>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="LabelHeader" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="LabelDetail" TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="#a0a0a0" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid x:Name="MaingrdForms">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ListView Grid.Row="0" x:Name="lstNotifications" HasUnevenRows="True"
+                          IsPullToRefreshEnabled="true"
+                          Refreshing="LstPulled"
+                          CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Frame Margin="10" Padding="0" HasShadow="True">
+                                        <Grid BackgroundColor="{Binding bgcolor}" ClassId="{Binding NotificationId}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Grid.Column="0"  VerticalOptions="Center" HorizontalOptions="Center">
+                                                <ffimageloading:CachedImage Source="{Binding ProductImg}" Style="{StaticResource productImgStyle}"/>
+                                            </StackLayout>
+                                            <StackLayout Grid.Column="1" Padding="5" Orientation="Vertical">
+                                                <Label Text="{Binding ProductName}" Style="{StaticResource LabelHeader}"/>
+                                                <Label Text="{Binding ProductDesc}" Style="{StaticResource LabelDetail}" />
+                                            </StackLayout>
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="NotificationItem_Tapped"/>
+                                            </Grid.GestureRecognizers>
+                                        </Grid>
+                                    </Frame>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label Grid.Row="0" x:Name="lblNoRecordFound" Text="No Record found" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+            </Grid>
+            <Grid x:Name="MaingrdAlert" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                <customView:AlertView x:Name="CustAlertView"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="MaingrdAlert_Tapped"
+                            NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+            </Grid>
+            <customView:ActivityIndicatorView x:Name="LoadingIndicator"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

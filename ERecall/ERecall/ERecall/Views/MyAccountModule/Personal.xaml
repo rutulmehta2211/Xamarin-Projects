@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.MyAccountModule.Personal"
+             xmlns:customView="clr-namespace:ERecall.Views.CommonViews;assembly=ERecall"
+             xmlns:local="clr-namespace:ERecall;assembly=ERecall"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Title="PERSONAL"
+             BackgroundColor="#f8f8f8">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <Style x:Key="LabelTitle" TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="#a0a0a0" />
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="0,0,0,5" Tablet="0,0,0,6" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="LabelData" TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="0,0,0,5" Tablet="0,0,0,6" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="60"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#87c636"/>
+            </Style>
+            <Style x:Key="PickerStyle" TargetType="Picker">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <ScrollView>
+                <Grid x:Name="MaingrdForms" RowSpacing="20" Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout BackgroundColor="#a0a0a0" Grid.Row="0" Padding="1">
+                        <StackLayout BackgroundColor="White" Orientation="Horizontal" Padding="5,0,0,0">
+                            <StackLayout.HeightRequest>
+                                 <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="55"/>
+                            </StackLayout.HeightRequest>
+                            <Label Text="Name:" Style="{StaticResource LabelTitle}" />
+                            <Entry x:Name="txtName" Style="{StaticResource EntryStyle}" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout BackgroundColor="#a0a0a0" Grid.Row="1" Padding="1">
+                        <StackLayout BackgroundColor="White" Orientation="Horizontal" Padding="5,0,0,0">
+                            <StackLayout.HeightRequest>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="55"/>
+                            </StackLayout.HeightRequest>
+                            <Label Text="Email:" Style="{StaticResource LabelTitle}" />
+                            <Entry x:Name="txtEmail" Style="{StaticResource EntryStyle}" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout BackgroundColor="#a0a0a0" Grid.Row="2" Padding="1">
+                        <StackLayout BackgroundColor="White" Orientation="Horizontal" Padding="5,0,0,0">
+                            <StackLayout.HeightRequest>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="55"/>
+                            </StackLayout.HeightRequest>
+                            <Label Text="Zip Code:" Style="{StaticResource LabelTitle}" />
+                            <Entry x:Name="txtZipCode" Keyboard="Numeric" TextChanged="txtZipCode_TextChanged" Style="{StaticResource EntryStyle}"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout BackgroundColor="#a0a0a0" Grid.Row="3" Padding="1">
+                        <StackLayout BackgroundColor="White" Orientation="Horizontal" Padding="5,0,0,0">
+                            <StackLayout.HeightRequest>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="55"/>
+                            </StackLayout.HeightRequest>
+                            <Label Text="Country:" Style="{StaticResource LabelTitle}" />
+                            <Picker x:Name="pkrCountry" Style="{StaticResource PickerStyle}"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout BackgroundColor="#a0a0a0" Grid.Row="4" Padding="1">
+                        <StackLayout BackgroundColor="White" Orientation="Horizontal" Padding="5,0,0,0">
+                            <StackLayout.HeightRequest>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="55"/>
+                            </StackLayout.HeightRequest>
+                            <Label Text="Account Type:" Style="{StaticResource LabelTitle}" />
+                            <Label x:Name="lblAccountType" Style="{StaticResource LabelData}"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Grid.Row="5">
+                        <Button x:Name="btnUpdate" Text="UPDATE" Clicked="btnUpdate_Clicked" Style="{StaticResource ButtonStyle}"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="6">
+                        <Button x:Name="btnResetPassword" Text="RESET PASSWORD" Clicked="btnResetPassword_Clicked" Style="{StaticResource ButtonStyle}"/>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+            <Grid x:Name="MaingrdAlert" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                <customView:AlertView x:Name="CustAlertView"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="MaingrdAlert_Tapped"
+                            NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+            </Grid>
+            <customView:ActivityIndicatorView x:Name="LoadingIndicator"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

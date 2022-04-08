@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.Menu.SideMenuMaster"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+             xmlns:controls="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             Title="Master"
+             BackgroundColor="#5a85e3">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ImgStyle" TargetType="ffimageloading:CachedImage">
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="5" Tablet="10" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="20" Tablet="30"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="20" Tablet="30"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="StackStyle" TargetType="StackLayout">
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="5" Tablet="10" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="20" Tablet="30"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="20" Tablet="30"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HorizontalOptions" Value="Fill" />
+                <Setter Property="VerticalOptions" Value="Fill" />
+            </Style>
+            <Style x:Key="GridStyle" TargetType="Grid">
+                <Setter Property="HorizontalOptions" Value="EndAndExpand" />
+                <Setter Property="VerticalOptions" Value="Fill" />
+            </Style>
+            <Style x:Key="LabelHeaderStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="#FCFCFC" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+            </Style>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#FCFCFC" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <controls:PullToRefreshLayout
+              IsPullToRefreshEnabled="True"
+              RefreshCommand="{Binding RefreshCommand}"
+              IsRefreshing="{Binding IsBusy}"
+              RefreshColor="Black">
+        <ScrollView>
+            <StackLayout>
+                <StackLayout>
+                    <StackLayout.HeightRequest>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="20" Tablet="30"/>
+                    </StackLayout.HeightRequest>
+                </StackLayout>
+                <StackLayout BackgroundColor="#376ddc">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="30,5,30,5" Tablet="40,10,40,10" />
+                    </StackLayout.Padding>
+                    <StackLayout Orientation="Horizontal">
+                        <ffimageloading:CachedImage x:Name="imgCancel" Source="menu_cancel.png" Style="{StaticResource ImgStyle}"/>
+                        <Label Text="{Binding Name,Mode=TwoWay}" Style="{StaticResource LabelHeaderStyle}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Style="{StaticResource StackStyle}" />
+                        <Label Text="Credits: " Style="{StaticResource LabelStyle}"/>
+                        <Label Text="{Binding Credits}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="30,5,30,5" Tablet="40,10,40,10" />
+                    </StackLayout.Padding>
+                    <StackLayout Orientation="Horizontal">
+                        <ffimageloading:CachedImage Source="menu_status.png" Style="{StaticResource ImgStyle}"/>
+                        <Label Text="My Status" Style="{StaticResource LabelHeaderStyle}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Style="{StaticResource StackStyle}"/>
+                        <Label Text="Imported Products: " Style="{StaticResource LabelStyle}"/>
+                        <Label Text="{Binding count_ImporedProductsCount}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Style="{StaticResource StackStyle}"/>
+                        <Label Text="Active Resolution Tickets: " Style="{StaticResource LabelStyle}"/>
+                        <Label Text="{Binding count_OpenTickets}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Style="{StaticResource StackStyle}"/>
+                        <Label Text="Available Reports: " Style="{StaticResource LabelStyle}"/>
+                        <Label Text="{Binding count_AvailableReports}" Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <BoxView Color="#2c5dd4" HeightRequest="1"/>
+                </StackLayout>
+                <StackLayout x:Name="stkMyAccount">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="30,5,30,5" Tablet="40,10,40,10" />
+                    </StackLayout.Padding>
+                    <StackLayout Orientation="Horizontal">
+                        <ffimageloading:CachedImage Source="menu_account.png" Style="{StaticResource ImgStyle}"/>
+                        <Label Text="My Account" Style="{StaticResource LabelHeaderStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <BoxView Color="#2c5dd4" HeightRequest="1" />
+                </StackLayout>
+                <StackLayout x:Name="stkMyFavourite">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="30,5,30,5" Tablet="40,10,40,10" />
+                    </StackLayout.Padding>
+                    <StackLayout Orientation="Horizontal">
+                        <ffimageloading:CachedImage Source="menu_favourites.png" Style="{StaticResource ImgStyle}"/>
+                        <Label Text="Favorites" Style="{StaticResource LabelHeaderStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <BoxView Color="#2c5dd4" HeightRequest="1" />
+                </StackLayout>
+                <StackLayout x:Name="stkAddVehicle">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="30,5,30,5" Tablet="40,10,40,10" />
+                    </StackLayout.Padding>
+                    <StackLayout Orientation="Horizontal">
+                        <ffimageloading:CachedImage Source="menu_vehicles.png" Style="{StaticResource ImgStyle}"/>
+                        <Label Text="Vehicles" Style="{StaticResource LabelHeaderStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <BoxView Color="#2c5dd4" HeightRequest="1" />
+                </StackLayout>
+                <StackLayout x:Name="stkInviteFriends">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="30,5,30,5" Tablet="40,10,40,10" />
+                    </StackLayout.Padding>
+                    <StackLayout Orientation="Horizontal">
+                        <ffimageloading:CachedImage Source="menu_invitefriends.png" Style="{StaticResource ImgStyle}"/>
+                        <Label Text="Invite Friends" Style="{StaticResource LabelHeaderStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <BoxView Color="#2c5dd4" HeightRequest="1"/>
+                </StackLayout>
+                <StackLayout x:Name="stkNotification">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="30,5,30,5" Tablet="40,10,40,10" />
+                    </StackLayout.Padding>
+                    <StackLayout Orientation="Horizontal">
+                        <ffimageloading:CachedImage Source="menu_notification.png" Style="{StaticResource ImgStyle}"/>
+                        <Label Text="Notifications" Style="{StaticResource LabelHeaderStyle}"/>
+                        <Grid Style="{StaticResource GridStyle}">
+                            <ffimageloading:CachedImage Source="menu_number.png" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Text="{Binding count_Notifications}" FontSize="Micro" FontAttributes="Bold" TextColor="#FCFCFC" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <BoxView Color="#2c5dd4" HeightRequest="1"/>
+                </StackLayout>
+                <StackLayout x:Name="stkSettings">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="30,5,30,5" Tablet="40,10,40,10" />
+                    </StackLayout.Padding>
+                    <StackLayout Orientation="Horizontal">
+                        <ffimageloading:CachedImage Source="menu_settings.png" Style="{StaticResource ImgStyle}"/>
+                        <Label Text="Settings" Style="{StaticResource LabelHeaderStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <BoxView Color="#2c5dd4" HeightRequest="1"/>
+                </StackLayout>
+                <StackLayout x:Name="stkLogout">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="30,5,30,5" Tablet="40,10,40,10" />
+                    </StackLayout.Padding>
+                    <StackLayout Orientation="Horizontal">
+                        <ffimageloading:CachedImage Source="menu_logout.png" Style="{StaticResource ImgStyle}"/>
+                        <Label Text="Logout" Style="{StaticResource LabelHeaderStyle}"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </controls:PullToRefreshLayout>
+</ContentPage>

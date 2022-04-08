@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.CommonViews.AlertView">
+  <ContentView.Content>
+        <Grid x:Name="grdAlert" VerticalOptions="StartAndExpand"  Opacity="1" Padding="20" ColumnSpacing="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="imgAlert"  Grid.Column="0"/>
+            <StackLayout Grid.Column="1" VerticalOptions="Center">
+                <Label x:Name="lblAlertTitle" FontSize="Large" FontAttributes="Bold"/>
+                <Label x:Name="lblAlertMessage" FontSize="Medium"/>
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

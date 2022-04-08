@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "86375828777",
+    "firebase_url": "https://erecall-e5dac.firebaseio.com",
+    "project_id": "erecall-e5dac",
+    "storage_bucket": "erecall-e5dac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86375828777:android:2b3e198e5060bc72",
+        "android_client_info": {
+          "package_name": "com.erecall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86375828777-32bka99m61ptt9q713i6hjrhotm22el1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjUZjIPcwzHmMAeEJVktz9PunMiBUHTG0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

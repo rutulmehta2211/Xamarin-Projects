@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.Feeds"
+             xmlns:local="clr-namespace:ERecall;assembly=ERecall"
+             xmlns:pages="clr-namespace:ERecall.Views.FeedsModule;assembly=ERecall"
+             xmlns:controls="clr-namespace:ERecall.Controls;assembly=ERecall"
+             Title="Feeds">
+    <!--Pages can be added as references or inline-->
+    <pages:LatestProducts Title="{x:Static local:AppResources.Feeds_Recent_L}" />
+    <pages:PopularProducts Title="{x:Static local:AppResources.Feeds_Trending_L}" />
+    <pages:MegaProducts Title="{x:Static local:AppResources.Feeds_MegaRecall_L}" />
+</TabbedPage>

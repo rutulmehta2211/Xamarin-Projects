@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.Settings.Settings"
+             xmlns:customView="clr-namespace:ERecall.Views.CommonViews;assembly=ERecall"
+             xmlns:local="clr-namespace:ERecall;assembly=ERecall"
+             Title="Settings"
+             BackgroundColor="#e8e8e8">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelHeaderStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="#a0a0a0" />
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="15,0,0,0" Tablet="20,0,0,0" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalOptions" Value="End"/>
+            </Style>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="15,0,0,0" Tablet="20,0,0,0" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="SwitchStyle" TargetType="Switch">
+                <!--<Setter Property="BackgroundColor" Value="#87c636" />-->
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="0,0,15,0" Tablet="0,0,20,0" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="40" Tablet="45"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="PickerStyle" TargetType="Picker">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="Thickness" Phone="0,0,15,0" Tablet="0,0,20,0" />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="40" Tablet="45"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid x:Name="MaingrdForms" RowSpacing="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" BackgroundColor="Transparent">
+                    <Grid.HeightRequest>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="40" Tablet="45"/>
+                    </Grid.HeightRequest>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Text="NOTIFICATION SETTING" Style="{StaticResource LabelHeaderStyle}" />
+                </Grid>
+                <Grid Grid.Row="1" BackgroundColor="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="New products added in products center" Style="{StaticResource LabelStyle}" />
+                    <Switch x:Name="SwitchNewProduct" Grid.Column="1" Style="{StaticResource SwitchStyle}"/>
+                </Grid>
+                <Grid Grid.Row="2" BackgroundColor="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Existing product items recalled" Style="{StaticResource LabelStyle}"/>
+                    <Switch x:Name="SwitchExistingProduct" Grid.Column="1" Style="{StaticResource SwitchStyle}" />
+                </Grid>
+                <Grid Grid.Row="3" BackgroundColor="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Resolution center claims updates" Style="{StaticResource LabelStyle}"/>
+                    <Switch x:Name="SwitchResolutionCenter" Grid.Column="1" Style="{StaticResource SwitchStyle}"/>
+                </Grid>
+                <Grid Grid.Row="4" BackgroundColor="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Notify Me" TextColor="Black" Style="{StaticResource LabelStyle}"/>
+                    <Picker x:Name="pkrNotifyMe" Grid.Column="1" Style="{StaticResource PickerStyle}"/>
+                </Grid>
+                <Grid Grid.Row="5" BackgroundColor="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Notify Interval" TextColor="Black" Style="{StaticResource LabelStyle}"/>
+                    <Picker x:Name="pkrNotifyInterval" Grid.Column="1" Style="{StaticResource PickerStyle}"/>
+                </Grid>
+            </Grid>
+            <Grid x:Name="MaingrdAlert" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                <customView:AlertView x:Name="CustAlertView"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="MaingrdAlert_Tapped"
+                            NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+            </Grid>
+            <customView:ActivityIndicatorView x:Name="LoadingIndicator"/>
+        </Grid>
+    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Save" Activated="Save_Activated" Order="Primary" Priority="0" />
+    </ContentPage.ToolbarItems>
+</ContentPage>

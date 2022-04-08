@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.InviteFriendsModule.InviteFriends"
+             xmlns:customView="clr-namespace:ERecall.Views.CommonViews;assembly=ERecall"
+             xmlns:local="clr-namespace:ERecall;assembly=ERecall"
+             Title="Invite Friends"
+             BackgroundColor="#376ddc">
+    <ContentPage.Content>
+        <Grid VerticalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Padding="20" RowSpacing="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                    <StackLayout.HeightRequest>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="70"/>
+                    </StackLayout.HeightRequest>
+                    <Label Text="Invite via Mail" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="Large" TextColor="#376ddc"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="InviteViaMail_Tapped" NumberOfTapsRequired="1"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+                <StackLayout Grid.Row="1" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout.HeightRequest>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="50" Tablet="70"/>
+                    </StackLayout.HeightRequest>
+                    <Label Text="Invite via Message" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="Large" TextColor="#376ddc"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="InviteViaMessage_Tapped" NumberOfTapsRequired="1"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

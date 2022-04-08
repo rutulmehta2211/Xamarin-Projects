@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.SignUp_Onboarding.OnboardingScreens"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:control="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:CI="clr-namespace:ERecall.Controls;assembly=ERecall"
+             xmlns:customView="clr-namespace:ERecall.Views.CommonViews;assembly=ERecall"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonFirst" TargetType="Button">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="#a0a0a0" />
+                <Setter Property="BorderColor" Value="#a0a0a0" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="ButtonLast" TargetType="Button">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#87c636" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <control:CarouselView x:Name="CarouselView" ItemsSource="{Binding LstOnboardingImages}" PositionSelected="CarouselView_PositionSelected"
+                                  Position="{Binding Position, Mode=TwoWay}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="35">
+                        <control:CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <ffimageloading:CachedImage Aspect="Fill" Source="{Binding ImageUrl, Mode=TwoWay}"/>
+                            </DataTemplate>
+                        </control:CarouselView.ItemTemplate>
+                    </control:CarouselView>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0"/>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="2.7*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0"/>
+                            <Button Grid.Column="1" x:Name="btnSkip" Text="SKIP" Clicked="btnSkip_Clicked" Style="{StaticResource ButtonFirst}"/>
+                            <Button Grid.Column="1" x:Name="btnBack" Text="BACK" Clicked="btnBack_Clicked" Style="{StaticResource ButtonFirst}"/>
+                            <StackLayout Grid.Column="2"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.2*"/>
+                                <ColumnDefinition Width="2.7*"/>
+                                <ColumnDefinition Width="0.2*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0"/>
+                            <Button Grid.Column="1" x:Name="btnNext" Text="NEXT" Clicked="btnNext_Clicked" Style="{StaticResource ButtonLast }"/>
+                            <StackLayout Grid.Column="2"/>
+                        </Grid>
+                    </Grid>
+                    <StackLayout Grid.Row="2"/>
+                </Grid>
+            </Grid>
+            <customView:ActivityIndicatorView x:Name="LoadingIndicator"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

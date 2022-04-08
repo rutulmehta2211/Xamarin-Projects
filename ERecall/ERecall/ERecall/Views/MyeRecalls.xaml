@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:ScrollableTabbed xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="ERecall.Views.MyeRecalls"
+            xmlns:local="clr-namespace:ERecall;assembly=ERecall"
+            xmlns:pages="clr-namespace:ERecall.Views.MyERecallsModule;assembly=ERecall"
+            xmlns:controls="clr-namespace:ERecall.Controls;assembly=ERecall"
+            Title="Favorites">
+    <!--Pages can be added as references or inline-->
+    <pages:All Title="All"  />
+    <pages:All Title="FOODS" />
+    <pages:All Title="PRODUCTS" />
+    <pages:All Title="VEHICLES" />
+    <pages:All Title="DRUGS" />
+    <pages:All Title="MEDICAL DEVICES" />
+</controls:ScrollableTabbed>

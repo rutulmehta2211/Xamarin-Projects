@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ERecall.Views.FeedsModule.RecalledItemDetails"
+             xmlns:control="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:CI="clr-namespace:ERecall.Controls;assembly=ERecall"
+             xmlns:custom="clr-namespace:ERecall.Controls;assembly=ERecall"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:customView="clr-namespace:ERecall.Views.CommonViews;assembly=ERecall"
+             xmlns:Converter="clr-namespace:ERecall.Converters;assembly=ERecall"
+             Title="eRecall">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:NonNullToBooleanConverter x:Key="VisibilityConverter" />
+            <Style x:Key="LabelHeaderStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="#303030" />
+            </Style>
+            <Style x:Key="LabelTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="#a0a0a0" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="LabelDescStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="#303030" />
+            </Style>
+            <Style x:Key="LabelGreenText" TargetType="Label">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="#87c636" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="LabelGreenTextMedium" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="#87c636" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="LabelGreenTextSmall" TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="TextColor" Value="#87c636" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="iconStyle" TargetType="ffimageloading:CachedImage">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="30" Tablet="35"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="30" Tablet="35"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="iconExpanderStyle" TargetType="ffimageloading:CachedImage">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="20" Tablet="25"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="WidthRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="20" Tablet="25"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="ProductImages" TargetType="ffimageloading:CachedImage">
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="60" Tablet="80"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="ButtonGray" TargetType="Button">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="#a0a0a0" />
+                <Setter Property="BorderColor" Value="#a0a0a0" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="BorderWidth" Value="1" />
+            </Style>
+            <Style x:Key="ButtonGreen" TargetType="Button">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#87c636" />
+            </Style>
+           
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <ScrollView x:Name="MainScrlForms">
+                <StackLayout>
+                    <Grid>
+                        <Grid.HeightRequest>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="225" Tablet="275"/>
+                        </Grid.HeightRequest>
+                        <Label x:Name="lblForNoImages" TextColor="Red" HorizontalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,25"
+                                        FontSize="Small" VerticalTextAlignment="End" BackgroundColor="Transparent" IsVisible="false"
+                                        Text="'No Images'" />
+                        <control:CarouselView x:Name="CarouselView" ItemsSource="{Binding objLstRecalledItemImage}"
+                                      Position="{Binding Position, Mode=TwoWay}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <control:CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <ffimageloading:CachedImage Aspect="Fill" Source="{Binding ImageUrl, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </control:CarouselView.ItemTemplate>
+                        </control:CarouselView>
+                        <CI:CarouselIndicators x:Name="CarouselIndicators" IndicatorHeight="10" IndicatorWidth="10" Margin="0,0,0,10"
+                                   UnselectedIndicator="unselected_circle.png" SelectedIndicator="selected_circle.png" VerticalOptions="End"
+                                   Position="{Binding Position}" ItemsSource="{Binding objLstRecalledItemImage}" />
+                    </Grid>
+                    <StackLayout Orientation="Vertical" Padding="20">
+                        <Grid Padding="5" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" x:Name="lblManufecturer" Style="{StaticResource LabelHeaderStyle}" />
+                            <ffimageloading:CachedImage x:Name="imgForShare" Grid.Column="1" Source="icon_ShareFeed.png" Style="{StaticResource iconStyle}">
+                                <ffimageloading:CachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="imgForShare_Tapped" NumberOfTapsRequired="1" />
+                                </ffimageloading:CachedImage.GestureRecognizers>
+                            </ffimageloading:CachedImage>
+                        </Grid>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Style="{StaticResource LabelGreenTextSmall}" Text="$" Margin="5,5,-1,5" />
+                            <Label x:Name="lblProductPrice" Style="{StaticResource LabelGreenText}" Margin="0,5,0,5" />
+                        </StackLayout>
+                        <BoxView Color="#a0a0a0" HeightRequest="1" Margin="5"/>
+                        <Grid Margin="5" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" Orientation="Vertical">
+                                <Label Text="Product Name:" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblProductName" Style="{StaticResource LabelDescStyle}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Column="1" Orientation="Vertical">
+                                <Label Text="Company:" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblCompany" Style="{StaticResource LabelDescStyle}"/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid Margin="5" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" Orientation="Vertical">
+                                <Label Text="Recall Date:" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblRecallDate" Style="{StaticResource LabelDescStyle}" LineBreakMode="TailTruncation"/>
+                            </StackLayout>
+                            <StackLayout Grid.Column="1" Orientation="Vertical">
+                                <Label Text="Affected Units:" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblAffectedUnits" Style="{StaticResource LabelDescStyle}"/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid Margin="5" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" Orientation="Vertical">
+                                <Label Text="Made in:" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblMadeIn" Style="{StaticResource LabelDescStyle}"/>
+                            </StackLayout>
+                        </Grid>
+                        <BoxView Color="#a0a0a0" HeightRequest="1" Margin="5"/>
+                        <Grid Margin="5" x:Name="GrdOrgRecallNo" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" Orientation="Vertical">
+                                <Label Text="Organization:" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblOrganization" Style="{StaticResource LabelDescStyle}" />
+                            </StackLayout>
+                            <StackLayout Grid.Column="1" Orientation="Vertical">
+                                <Label Text="Recall Number:" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblRecallNo" Style="{StaticResource LabelDescStyle}"/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid Margin="5" x:Name="GrdCatCountry" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" Orientation="Vertical">
+                                <Label Text="Category:" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblCategory" Style="{StaticResource LabelDescStyle}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Column="1" Orientation="Vertical">
+                                <Label Text="Countries" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblCountry" Style="{StaticResource LabelDescStyle}"/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid Margin="5" x:Name="GrdClassesRisk" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" Orientation="Vertical">
+                                <Label Text="Recall Classes:" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblRecallClass" Style="{StaticResource LabelDescStyle}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Column="1" Orientation="Vertical">
+                                <Label Text="Risk:" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblHealthRisk" Style="{StaticResource LabelDescStyle}"/>
+                            </StackLayout>
+                        </Grid>
+                        <Grid Margin="5" x:Name="GrdSourceRemedy" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" Orientation="Vertical">
+                                <Label Text="Sources" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblProductSource" Style="{StaticResource LabelDescStyle}"/>
+                            </StackLayout>
+                            <StackLayout Grid.Column="1" Orientation="Vertical">
+                                <Label Text="Remedy" Style="{StaticResource LabelTitleStyle}"/>
+                                <Label x:Name="lblRemedyType" Style="{StaticResource LabelDescStyle}"/>
+                            </StackLayout>
+                        </Grid>
+                        <BoxView x:Name="boxBeforReleventRecall" Color="#a0a0a0" HeightRequest="1" Margin="5"/>
+                        <StackLayout x:Name="stkMainReleventRecalls">
+                            <Label Grid.Column="0" Text="Relevent Recalls" Style="{StaticResource LabelTitleStyle}"/>
+                            <StackLayout x:Name="stkReleventRecalls">
+                            </StackLayout>
+                        </StackLayout>
+                        <BoxView Color="#a0a0a0" HeightRequest="1" Margin="5"/>
+                        <Grid Margin="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="Product Description" Style="{StaticResource LabelTitleStyle}"/>
+                            <ffimageloading:CachedImage x:Name="imgForProduceDesc" Grid.Column="1" Source="icon_UpArrow.png" Style="{StaticResource iconExpanderStyle}" ClassId="false">
+                                <ffimageloading:CachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                Tapped="ProductDecription_Tapped"
+                                                NumberOfTapsRequired="1" />
+                                </ffimageloading:CachedImage.GestureRecognizers>
+                            </ffimageloading:CachedImage>
+                        </Grid>
+                        <Label x:Name="lblProductDesc" Style="{StaticResource LabelDescStyle}" Margin="5" IsVisible="False"/>
+                        <BoxView Color="#a0a0a0" HeightRequest="1" Margin="5"/>
+                        <Grid Margin="5" x:Name="grdDefectSummary">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="Defect Summary" Style="{StaticResource LabelTitleStyle}"/>
+                            <ffimageloading:CachedImage x:Name="imgForDefectSummary" Grid.Column="1" Source="icon_UpArrow.png" Style="{StaticResource iconExpanderStyle}" ClassId="false">
+                                <ffimageloading:CachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                Tapped="DefectSummary_Tapped"
+                                                NumberOfTapsRequired="1" />
+                                </ffimageloading:CachedImage.GestureRecognizers>
+                            </ffimageloading:CachedImage>
+                        </Grid>
+                        <Label x:Name="lblDefectSummary" Style="{StaticResource LabelDescStyle}" Margin="5" IsVisible="False"/>
+                        <BoxView Color="#a0a0a0" HeightRequest="1" Margin="5"/>
+                        <Label x:Name="lblReadMore" Text="Recall Notice" Style="{StaticResource LabelGreenTextMedium}" Margin="5">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="lblReadMore_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Button x:Name="btnIOwnIt" Margin="5" Style="{StaticResource ButtonGreen}" Text="I OWN IT" Clicked="btnIOwnIt_Clicked"/>
+                        <Button x:Name="btnAddToMyeRecall" Margin="5" Style="{StaticResource ButtonGray}" Text="ADD TO FAVORITES" Clicked="btnAddToMyeRecall_Clicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <Grid x:Name="MaingrdAlert" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+                <customView:AlertView x:Name="CustAlertView"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="TapGestureRecognizer_Tapped"
+                            NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+            </Grid>
+            <customView:ActivityIndicatorView x:Name="LoadingIndicator"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
